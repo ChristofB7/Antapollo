@@ -4,15 +4,30 @@ using UnityEngine;
 
 public class Card : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    Deck parentDeck = null;
+    private void Start()
     {
+        if (gameObject.transform.parent)
+        {
+            parentDeck = gameObject.transform.parent.GetComponent<Deck>();
+        }
+        else
+        {
+            Debug.Log("This Object has no parent");
+        }
+    }
+    private void OnMouseDown()
+    {
+        if (parentDeck)
+        {
+            //RUN CARD STUFF HERE
+            parentDeck.DiscardCard(gameObject.GetComponent<Card>());
+        }
+        else
+        {
+            Debug.Log("No parent deck found");
+        }
         
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }
