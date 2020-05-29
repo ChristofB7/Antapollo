@@ -74,9 +74,9 @@ public class Deck : MonoBehaviour {
 
         if(cardsLeft < 5)
         {
-            CheckDeck();
+          /*  CheckDeck();
             CheckDiscard();
-            CheckHand();
+            CheckHand();*/
             for (int i = 0; i < cardsLeft; i++)
             {
                 Card card = PickARandomCard();
@@ -89,9 +89,9 @@ public class Deck : MonoBehaviour {
                 Debug.Log("j: " + j + "cardsInHand: " + cardsInHand.Count);
                 Card card = PickARandomCard();
             }
-            CheckDeck();
+         /*   CheckDeck();
             CheckDiscard();
-            CheckHand();
+            CheckHand();*/
         }
 
         else if (cardsInHand.Count == 0)
