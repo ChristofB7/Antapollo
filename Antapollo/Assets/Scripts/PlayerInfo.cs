@@ -7,7 +7,7 @@ public class PlayerInfo : MonoBehaviour
     int maxHealth;
     int health;
     int satiation = 0;
-    Deck deck = new Deck();
+    Deck deck;
 
     private void Start()
     {
