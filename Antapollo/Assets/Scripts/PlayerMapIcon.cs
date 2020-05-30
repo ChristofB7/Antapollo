@@ -4,19 +4,32 @@ using UnityEngine;
 
 public class PlayerMapIcon : MonoBehaviour
 {
-    const int SPEED = 5;
+    //player move speed
+    const float SPEED = 0.2f;
 
+    //is either 1 or the square root of 2. Used to ensure constant speed on diagonals
     private float diagonal = 1;
+
+    //used to determine sign of movements, 0 if none
     private int horzAxis = 0;
     private int vertAxis = 0;
 
-    void Update()
+    //holds the rigid body component
+    Rigidbody2D player;
+
+    private void Start()
     {
-        if (Input.GetAxis("Horizontal") > 0)
+        player = GetComponent<Rigidbody2D>();
+    }
+
+    void FixedUpdate()
+    {
+       //finds the sign of the horz axis
+        if (Input.GetAxisRaw("Horizontal") > 0)
         {
             horzAxis = 1;
         }
-        else if(Input.GetAxis("Horizontal") < 0)
+        else if(Input.GetAxisRaw("Horizontal") < 0)
         {
             horzAxis = -1;
         }
@@ -25,11 +38,12 @@ public class PlayerMapIcon : MonoBehaviour
             horzAxis = 0;
         }
 
-        if(Input.GetAxis("Vertical") > 0)
+        //finds the sign of the vert axis
+        if(Input.GetAxisRaw("Vertical") > 0)
         {
             vertAxis = 1;
         }
-        else if (Input.GetAxis("Vertical") < 0)
+        else if (Input.GetAxisRaw("Vertical") < 0)
         {
             vertAxis = -1;
         }
@@ -38,18 +52,18 @@ public class PlayerMapIcon : MonoBehaviour
             vertAxis = 0;
         }
 
-        if(Input.GetAxis("Horizontal") != 0 && Input.GetAxis("Vertical") != 0)
-        {
-            diagonal = 1;
-        }
-        else
+        //checks if movement is diagonal
+        if(Input.GetAxisRaw("Horizontal") != 0 && Input.GetAxisRaw("Vertical") != 0)
         {
             diagonal = Mathf.Sqrt(2.0f);
         }
+        else
+        {
+            diagonal = 1;
+        }
 
-        transform.Translate(new Vector3(SPEED*horzAxis/diagonal, 0, SPEED*vertAxis/diagonal));
-
-
-
+        //moves player
+        player.MovePosition(player.position + new Vector2(SPEED*horzAxis/diagonal, SPEED*vertAxis/diagonal));
     }
+
 }
