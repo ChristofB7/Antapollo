@@ -332,8 +332,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-<<<<<<< HEAD
-<<<<<<< HEAD
 --- !u!1 &834421826
 GameObject:
   m_ObjectHideFlags: 0
@@ -377,11 +375,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-=======
->>>>>>> 6c2f9ab08c51b0ec9e92973f9d8bcf87954e11d0
-=======
->>>>>>> 6c2f9ab08c51b0ec9e92973f9d8bcf87954e11d0
->>>>>>> 6c2f9ab08c51b0ec9e92973f9d8bcf87954e11d0
 --- !u!1 &1210506500
 GameObject:
   m_ObjectHideFlags: 0
@@ -756,12 +749,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> 6c2f9ab08c51b0ec9e92973f9d8bcf87954e11d0
-=======
->>>>>>> 6c2f9ab08c51b0ec9e92973f9d8bcf87954e11d0
 --- !u!1001 &6858818802498890367
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -900,4 +887,3 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 33e9121f9d96fc849b1d07a657087a8d, type: 3}
->>>>>>> 6c2f9ab08c51b0ec9e92973f9d8bcf87954e11d0
