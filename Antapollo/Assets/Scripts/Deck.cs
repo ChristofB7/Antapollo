@@ -7,6 +7,7 @@ using UnityEngine;
 using UnityEngine.XR;
 
 public class Deck : MonoBehaviour {
+
     //Card Positions
     static private Vector2 CARD_POSITION1 = new Vector2(-1, 2);
     static private Vector2 CARD_POSITION2 = new Vector2(2, 2);
@@ -16,6 +17,8 @@ public class Deck : MonoBehaviour {
     static private Vector2 DRAW_POSITION = new Vector2(0, 0);
     static private Vector2 DISCARD_POSITION = new Vector2(13, -2);
 
+    [SerializeField] float waitTime = 0.2f;
+
     //Lists of Cards
     List<Card> cardsInDeck = new List<Card>();
     List<Card> cardsInHand = new List<Card>();
@@ -23,8 +26,8 @@ public class Deck : MonoBehaviour {
     int childCount;
 
     float offset = 0f;
-
-    bool started = false;
+    bool enableCardInHand = false;
+    bool enableEndTurn = false;
     public void Start()
     {
         childCount = gameObject.transform.childCount;
@@ -46,67 +49,28 @@ public class Deck : MonoBehaviour {
 
     public IEnumerator WaitThenDrawCoroutine()
     {
-        yield return new WaitForSeconds(3);
-        Draw5RandomCards();
-        started = true;
+        yield return new WaitForSeconds(2);
+        StartCoroutine(Draw5RandomCards());
+        enableEndTurn = true;
     }
 
     //Method to end the turn
     public void EndTurn()
     {
-        if (started)
+        if (enableEndTurn)
         {
             DiscardRestOfHand();
-            Draw5RandomCards();
+            StartCoroutine(Draw5RandomCards());
 
             //TODO: Ememy turn here
         }
         else
         {
-            Debug.Log("Please wait for the game to start");
+            Debug.Log("End Turn button disabled");
         }
     }
 
     // Methods to Draw Cards
-    public void Draw5RandomCards()
-    {
-        int cardsLeft = cardsInDeck.Count;
-
-        if(cardsLeft < 5)
-        {
-          /*  CheckDeck();
-            CheckDiscard();
-            CheckHand();*/
-            for (int i = 0; i < cardsLeft; i++)
-            {
-                Card card = PickARandomCard();
-            }
-
-                ShuffleCards();
-
-            for (int j = cardsInHand.Count; j < 5; j++)
-            {
-                Debug.Log("j: " + j + "cardsInHand: " + cardsInHand.Count);
-                Card card = PickARandomCard();
-            }
-         /*   CheckDeck();
-            CheckDiscard();
-            CheckHand();*/
-        }
-
-        else if (cardsInHand.Count == 0)
-        {
-            for (int i = 0; i < 5; i++)
-            {
-                Card card = PickARandomCard();
-            }
-        }
-        else
-        {
-            Debug.Log("You must first get rid of your hand");
-        }
-    }
-
     private void ShuffleCards()
     {
         offset = 0;
@@ -120,8 +84,47 @@ public class Deck : MonoBehaviour {
         cardsInDiscard = new List<Card>();
     }
 
-    public Card PickARandomCard()
+    public IEnumerator Draw5RandomCards()
     {
+        enableCardInHand = false;
+        enableEndTurn = false;
+        int cardsLeft = cardsInDeck.Count;
+        if (cardsLeft < 5)
+        {
+            for (int i = 0; i < cardsLeft; i++)
+            {
+               PickARandomCard();
+               yield return new WaitForSecondsRealtime(waitTime);
+            }
+
+            ShuffleCards();
+
+            for (int j = cardsInHand.Count; j < 5; j++)
+            {
+                PickARandomCard();
+                yield return new WaitForSecondsRealtime(waitTime);
+            }
+        }
+
+        else if (cardsInHand.Count == 0)
+        {
+            for (int i = 0; i < 5; i++)
+            {
+                PickARandomCard();
+                yield return new WaitForSecondsRealtime(waitTime);
+            }
+        }
+        else
+        {
+            Debug.Log("You must first get rid of your hand");
+        }
+        enableEndTurn = true;
+        enableCardInHand = true;
+    }
+
+    public void PickARandomCard()
+    {
+       
             // pick a card from the deck
             Card grabbedCard = cardsInDeck[UnityEngine.Random.Range(0, cardsInDeck.Count - 1)];
 
@@ -134,8 +137,6 @@ public class Deck : MonoBehaviour {
 
             //Remove the grabbed card from the deck
             cardsInDeck.Remove(grabbedCard);
-
-            return grabbedCard;
         }
 
 
@@ -158,6 +159,17 @@ public class Deck : MonoBehaviour {
         }
     }
 
+    public bool cardInHand(Card card)
+    {
+        if (enableCardInHand)
+        {
+            return cardsInHand.Contains(card);
+        }
+        else
+        {
+            return false;
+        }
+    }
 
     //Methods to move the card to specific postitions
     public Vector2 GetHandPosition()
@@ -207,6 +219,5 @@ public class Deck : MonoBehaviour {
             Debug.Log("Discard card: "+cd);
         }
     }
-
 
 }

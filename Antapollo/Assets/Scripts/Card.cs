@@ -18,14 +18,14 @@ public class Card : MonoBehaviour
     }
     private void OnMouseDown()
     {
-        if (parentDeck)
+        if (parentDeck && parentDeck.cardInHand(gameObject.GetComponent<Card>()))
         {
             //RUN CARD STUFF HERE
             parentDeck.DiscardCard(gameObject.GetComponent<Card>());
         }
         else
         {
-            Debug.Log("No parent deck found");
+            Debug.Log("Card is not in hand or no parent object found");
         }
         
     }
