@@ -8,13 +8,15 @@ using UnityEngine.XR;
 
 public class Deck : MonoBehaviour {
 
+    Battle battle;
+
     //Card Positions
     static private Vector2 CARD_POSITION1 = new Vector2(-1, 2);
     static private Vector2 CARD_POSITION2 = new Vector2(2, 2);
     static private Vector2 CARD_POSITION3 = new Vector2(5, 2);
     static private Vector2 CARD_POSITION4 = new Vector2(8, 2);
     static private Vector2 CARD_POSITION5 = new Vector2(11, 2);
-    static private Vector2 DRAW_POSITION = new Vector2(0, 0);
+    static private Vector2 DRAW_POSITION = new Vector2(0, -2);
     static private Vector2 DISCARD_POSITION = new Vector2(13, -2);
 
     [SerializeField] float waitTime = 0.2f;
@@ -30,6 +32,8 @@ public class Deck : MonoBehaviour {
     bool enableEndTurn = false;
     public void Start()
     {
+        battle = FindObjectOfType<Battle>();
+
         childCount = gameObject.transform.childCount;
         for (int i = 0; i < childCount; i++)
         {
@@ -51,7 +55,6 @@ public class Deck : MonoBehaviour {
     {
         yield return new WaitForSeconds(2);
         StartCoroutine(Draw5RandomCards());
-        enableEndTurn = true;
     }
 
     //Method to end the turn
@@ -59,10 +62,12 @@ public class Deck : MonoBehaviour {
     {
         if (enableEndTurn)
         {
+            battle.EnemyChooseMove();
+            battle.PlayerRemoveArmor();
+
             DiscardRestOfHand();
             StartCoroutine(Draw5RandomCards());
 
-            //TODO: Ememy turn here
         }
         else
         {

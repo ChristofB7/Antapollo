@@ -8,38 +8,32 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 4889995819829347866}
+  - component: {fileID: 2051951997826731978}
   - component: {fileID: 2051951997826731979}
   - component: {fileID: 2051951997826731977}
   - component: {fileID: 6691408337312188357}
-  - component: {fileID: 3727310370730405233}
-  - component: {fileID: 985639753760218750}
+  - component: {fileID: 4526892434227211103}
   m_Layer: 0
-  m_Name: Claw Card
+  m_Name: Claw
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!224 &4889995819829347866
-RectTransform:
+--- !u!4 &2051951997826731978
+Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2051951997826731972}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -5.34, y: -2.71, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -5.326, y: -2.71}
-  m_SizeDelta: {x: 2.6116946, y: 3.0307693}
-  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!212 &2051951997826731979
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -80,7 +74,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: b4502d3cd4bf1c04293f22a76eb9545e, type: 3}
-  m_Color: {r: 0.9433962, g: 0.35154858, b: 0.35154858, a: 1}
+  m_Color: {r: 0.94509804, g: 0.26175612, b: 0.21960783, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -102,8 +96,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8147ff8f3755968478976ffbab85f242, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 0
-  armor: 0
 --- !u!61 &6691408337312188357
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -130,15 +122,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 2.5846155, y: 3.0307693}
   m_EdgeRadius: 0
---- !u!222 &3727310370730405233
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2051951997826731972}
-  m_CullTransparentMesh: 0
---- !u!114 &985639753760218750
+--- !u!114 &4526892434227211103
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -150,3 +134,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd6644183a643584284b87f06f9fe132, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  damage: 3

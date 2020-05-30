@@ -4,9 +4,11 @@ using UnityEngine;
 
 public class Card : MonoBehaviour
 {
+    Battle battle;
     Deck parentDeck = null;
     private void Start()
     {
+        battle = FindObjectOfType<Battle>();
         if (gameObject.transform.parent)
         {
             parentDeck = gameObject.transform.parent.GetComponent<Deck>();
@@ -20,7 +22,15 @@ public class Card : MonoBehaviour
     {
         if (parentDeck && parentDeck.cardInHand(gameObject.GetComponent<Card>()))
         {
-            //RUN CARD STUFF HERE
+            if (gameObject.GetComponent<DamageCard>())
+            {
+                battle.PlayerAttack(gameObject.GetComponent<DamageCard>().GetDamage());
+            }
+            else if (gameObject.GetComponent<BlockCard>())
+            {
+                battle.PlayerArmorUp(gameObject.GetComponent<BlockCard>().GetBlock());
+            }
+
             parentDeck.DiscardCard(gameObject.GetComponent<Card>());
         }
         else

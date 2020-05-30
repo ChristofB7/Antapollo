@@ -3,20 +3,20 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
-public class EnemyHealthDisplay : MonoBehaviour
+public class EnemyArmorDisplay : MonoBehaviour
 {
-    TextMeshProUGUI enemyHealthText;
+    TextMeshProUGUI enemyArmorText;
     Enemy enemy;
 
     // Update is called once per frame
     private void Start()
     {
-        enemyHealthText = gameObject.transform.GetChild(0).GetComponent<TextMeshProUGUI>();
+        enemyArmorText = gameObject.transform.GetChild(0).GetComponent<TextMeshProUGUI>();
         enemy = FindObjectOfType<Enemy>();
         UpdateDisplay();
     }
     public void UpdateDisplay()
     {
-        enemyHealthText.text = enemy.GetHealth().ToString();
+        enemyArmorText.text = enemy.GetArmor().ToString();
     }
 }

@@ -1,18 +1,22 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class HealthDisplay : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    TextMeshProUGUI healthText;
+    PlayerInfo player;
 
     // Update is called once per frame
-    void Update()
+    private void Start()
     {
-        
+        healthText = gameObject.transform.GetChild(0).GetComponent<TextMeshProUGUI>();
+        player = FindObjectOfType<PlayerInfo>();
+        UpdateDisplay();
+    }
+    public void UpdateDisplay()
+    {
+        healthText.text = player.GetHealth().ToString();
     }
 }
