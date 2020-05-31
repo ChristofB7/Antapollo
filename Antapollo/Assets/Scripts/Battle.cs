@@ -5,16 +5,28 @@ using UnityEngine;
 
 public class Battle : MonoBehaviour
 {
+    //Display winning and losing
+    [SerializeField] Canvas winCanvas = null;
+    [SerializeField]Canvas loseCanvas = null;
+    bool gameOver = false;
+
+    //Player Information
     PlayerInfo player;
-    Enemy enemy;
     HealthDisplay playerHealthDisplay;
     ArmorDisplay playerArmorDisplay;
+
+    //Enemy Information
+    Enemy enemy;
     EnemyHealthDisplay enemyHealthDisplay;
     EnemyArmorDisplay enemyArmorDisplay;
+
+
 
     // Start is called before the first frame update
     void Start()
     {
+        winCanvas.gameObject.SetActive(false);
+        loseCanvas.gameObject.SetActive(false);
         player = FindObjectOfType<PlayerInfo>();
         enemy = FindObjectOfType<Enemy>();
         playerHealthDisplay = FindObjectOfType<HealthDisplay>();
@@ -27,16 +39,29 @@ public class Battle : MonoBehaviour
 
     public void EndTurn()
     {
-        Deck playerDeck = player.GetDeckInstance();
-        if(playerDeck.GetEndTurn())
+        if (!gameOver)
         {
-            EnemyChooseMove();
-            PlayerRemoveArmor();
+            Deck playerDeck = player.GetDeckInstance();
+            if (playerDeck.GetEndTurn())
+            {
+                EnemyChooseMove();
+                PlayerRemoveArmor();
 
-            playerDeck.DiscardRestOfHand();
-            playerDeck.StartDrawCoroutine();
+                playerDeck.DiscardRestOfHand();
+                playerDeck.StartDrawCoroutine();
+            }
+        }
+        else
+        {
+            Debug.Log("The game has ended");
         }
 
+    }
+
+    public int GetPlayerHealthArmor()
+    {
+        int totalHP = player.GetHealth() + player.GetArmor();
+        return totalHP;
     }
 
     public void EnemyChooseMove()
@@ -47,13 +72,42 @@ public class Battle : MonoBehaviour
 
     public void PlayerAttack(int damage)
     {
+
         //if enemy loses all life - win
         enemyHealthDisplay.GetComponent<Animator>().SetTrigger("Damage Trigger");
-        int totalDamage = Mathf.RoundToInt(damage * GetPlayerSatiation());
+        int totalDamage = Mathf.RoundToInt(damage * player.GetSatiation());
+
+        if(enemy.GetArmor() + enemy.GetHealth() <= totalDamage)
+        {
+            WinGame();
+        }
+
         enemy.TakeDamage(totalDamage);
         enemyHealthDisplay.UpdateDisplay();
         enemyArmorDisplay.UpdateDisplay();
     }
+
+    private void WinGame()
+    {
+        gameOver = true;
+        winCanvas.gameObject.SetActive(true);
+        winCanvas.transform.position = new Vector3(5,3,1);
+        Time.timeScale = 0f;
+        Debug.Log("win the game");
+        player.LowerSatiation();
+    }
+
+    public void LoseGame()
+    {
+        gameOver = true;
+        loseCanvas.gameObject.SetActive(true);
+        loseCanvas.transform.position = new Vector3(5, 3, 1);
+        Time.timeScale = 0f;
+        Debug.Log("You have lost");
+        player.LowerSatiation();
+        player.LowerSatiation();
+    }
+
     public void EnemyAttack(int damage)
     {
         playerHealthDisplay.GetComponent<Animator>().SetTrigger("Damage Trigger");
@@ -80,8 +134,9 @@ public class Battle : MonoBehaviour
         playerArmorDisplay.UpdateDisplay();
     }
 
-    public float GetPlayerSatiation()
+    public void UpdateEnemyArmorDisplay()
     {
-        return player.GetSatiation();
+        enemyArmorDisplay.UpdateDisplay();
     }
+
 }

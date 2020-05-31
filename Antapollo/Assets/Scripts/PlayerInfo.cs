@@ -82,4 +82,9 @@ public class PlayerInfo : MonoBehaviour {
     {
         return MaxCardsPerTurn;
     }
+
+    public void LowerSatiation()
+    {
+        satiation = satiation - 0.1f;
+    }
     }

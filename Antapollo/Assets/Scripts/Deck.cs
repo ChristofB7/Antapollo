@@ -14,7 +14,6 @@ public class Deck : MonoBehaviour {
     CardsUsedDisplay cardsUsedDisplay;
     int usedCards = 0;
     int maxCardsPerTurn;
-    bool usedMax = false;
 
     //Card Positions
     static private Vector3 CARD_POSITION1 = new Vector3(-1, 2, 0);
@@ -41,7 +40,6 @@ public class Deck : MonoBehaviour {
     {
         cardsUsedDisplay = FindObjectOfType<CardsUsedDisplay>();
         maxCardsPerTurn = FindObjectOfType<PlayerInfo>().GetMaxCardsPerTurn();
-        Debug.Log(maxCardsPerTurn);
         cardsUsedDisplay.UpdateMaxDispaly(maxCardsPerTurn);
         cardsUsedDisplay.UpdateUsedDisplay(usedCards);
 
