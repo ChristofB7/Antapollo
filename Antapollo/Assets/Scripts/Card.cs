@@ -6,8 +6,8 @@ public class Card : MonoBehaviour
 {
     Battle battle;
     Deck parentDeck = null;
-    private void Start()
-    {
+    private void Start() 
+    { 
         battle = FindObjectOfType<Battle>();
         if (gameObject.transform.parent)
         {
@@ -20,8 +20,9 @@ public class Card : MonoBehaviour
     }
     private void OnMouseDown()
     {
-        if (parentDeck && parentDeck.cardInHand(gameObject.GetComponent<Card>()))
+        if (parentDeck && parentDeck.cardInHand(gameObject.GetComponent<Card>()) && !parentDeck.usedMaxCards())
         {
+            parentDeck.UsedCard();
             if (gameObject.GetComponent<DamageCard>())
             {
                 battle.PlayerAttack(gameObject.GetComponent<DamageCard>().GetDamage());
@@ -35,7 +36,7 @@ public class Card : MonoBehaviour
         }
         else
         {
-            Debug.Log("Card is not in hand or no parent object found");
+            Debug.Log("Card is not in hand, reached max cards, or no parent object found");
         }
         
     }

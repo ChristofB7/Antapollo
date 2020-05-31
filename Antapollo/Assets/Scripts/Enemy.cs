@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
+    EnemyArmorDisplay enemyArmorDisplay;
     Battle battle;
     [SerializeField] int damage = 3;
     const int MAX_HEALTH = 5;
@@ -15,6 +16,7 @@ public class Enemy : MonoBehaviour
     private void Start()
     {
         battle = FindObjectOfType<Battle>();
+        enemyArmorDisplay = FindObjectOfType<EnemyArmorDisplay>();
     }
 
     public void move1()
@@ -24,6 +26,14 @@ public class Enemy : MonoBehaviour
 
     public void move2()
     {
+        if (enemyArmorDisplay)
+        {
+            enemyArmorDisplay.GetComponent<Animator>().SetTrigger("Armor Up Trigger");
+        }
+        else
+        {
+            Debug.Log("display not found");
+        }
         armor = 3;
     }
 

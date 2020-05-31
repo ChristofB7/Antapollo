@@ -21,6 +21,22 @@ public class Battle : MonoBehaviour
         playerArmorDisplay = FindObjectOfType<ArmorDisplay>();
         enemyHealthDisplay = FindObjectOfType<EnemyHealthDisplay>();
         enemyArmorDisplay = FindObjectOfType<EnemyArmorDisplay>();
+
+        player.StartBattle();
+    }
+
+    public void EndTurn()
+    {
+        Deck playerDeck = player.GetDeckInstance();
+        if(playerDeck.GetEndTurn())
+        {
+            EnemyChooseMove();
+            PlayerRemoveArmor();
+
+            playerDeck.DiscardRestOfHand();
+            playerDeck.StartDrawCoroutine();
+        }
+
     }
 
     public void EnemyChooseMove()
@@ -32,7 +48,7 @@ public class Battle : MonoBehaviour
     public void PlayerAttack(int damage)
     {
         //if enemy loses all life - win
-
+        enemyHealthDisplay.GetComponent<Animator>().SetTrigger("Damage Trigger");
         int totalDamage = Mathf.RoundToInt(damage * GetPlayerSatiation());
         enemy.TakeDamage(totalDamage);
         enemyHealthDisplay.UpdateDisplay();
@@ -40,6 +56,7 @@ public class Battle : MonoBehaviour
     }
     public void EnemyAttack(int damage)
     {
+        playerHealthDisplay.GetComponent<Animator>().SetTrigger("Damage Trigger");
         //if player loses all life - lose
         player.TakeDamage(damage);
         playerHealthDisplay.UpdateDisplay();
@@ -58,6 +75,7 @@ public class Battle : MonoBehaviour
     }
     public void PlayerArmorUp(int armor)
     {
+        playerArmorDisplay.GetComponent<Animator>().SetTrigger("Armor Up Trigger");
         player.SetArmor(player.GetArmor()+armor);
         playerArmorDisplay.UpdateDisplay();
     }

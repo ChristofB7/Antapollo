@@ -10,14 +10,20 @@ public class Deck : MonoBehaviour {
 
     Battle battle;
 
+    //Display used card variables
+    CardsUsedDisplay cardsUsedDisplay;
+    int usedCards = 0;
+    int maxCardsPerTurn;
+    bool usedMax = false;
+
     //Card Positions
-    static private Vector2 CARD_POSITION1 = new Vector2(-1, 2);
-    static private Vector2 CARD_POSITION2 = new Vector2(2, 2);
-    static private Vector2 CARD_POSITION3 = new Vector2(5, 2);
-    static private Vector2 CARD_POSITION4 = new Vector2(8, 2);
-    static private Vector2 CARD_POSITION5 = new Vector2(11, 2);
-    static private Vector2 DRAW_POSITION = new Vector2(0, -2);
-    static private Vector2 DISCARD_POSITION = new Vector2(13, -2);
+    static private Vector3 CARD_POSITION1 = new Vector3(-1, 2, 0);
+    static private Vector3 CARD_POSITION2 = new Vector3(2, 2, 0);
+    static private Vector3 CARD_POSITION3 = new Vector3(5, 2, 0);
+    static private Vector3 CARD_POSITION4 = new Vector3(8, 2, 0);
+    static private Vector3 CARD_POSITION5 = new Vector3(11, 2, 0);
+    static private Vector3 DRAW_POSITION = new Vector3(0, -2, 0);
+    static private Vector3 DISCARD_POSITION = new Vector3(13, -2 ,0);
 
     [SerializeField] float waitTime = 0.2f;
 
@@ -30,9 +36,14 @@ public class Deck : MonoBehaviour {
     float offset = 0f;
     bool enableCardInHand = false;
     bool enableEndTurn = false;
-    public void Start()
+
+    public void StartBattle()
     {
-        battle = FindObjectOfType<Battle>();
+        cardsUsedDisplay = FindObjectOfType<CardsUsedDisplay>();
+        maxCardsPerTurn = FindObjectOfType<PlayerInfo>().GetMaxCardsPerTurn();
+        Debug.Log(maxCardsPerTurn);
+        cardsUsedDisplay.UpdateMaxDispaly(maxCardsPerTurn);
+        cardsUsedDisplay.UpdateUsedDisplay(usedCards);
 
         childCount = gameObject.transform.childCount;
         for (int i = 0; i < childCount; i++)
@@ -47,8 +58,12 @@ public class Deck : MonoBehaviour {
                 Debug.Log("Card read error - skipping card");
             }
         }
-        Debug.Log("Drawing Cards");
-        StartCoroutine(WaitThenDrawCoroutine());
+        battle = FindObjectOfType<Battle>();
+        if (battle)
+        {
+            Debug.Log("Drawing Cards");
+            StartCoroutine(WaitThenDrawCoroutine());
+        }
     }
 
     public IEnumerator WaitThenDrawCoroutine()
@@ -58,21 +73,9 @@ public class Deck : MonoBehaviour {
     }
 
     //Method to end the turn
-    public void EndTurn()
+    public bool GetEndTurn()
     {
-        if (enableEndTurn)
-        {
-            battle.EnemyChooseMove();
-            battle.PlayerRemoveArmor();
-
-            DiscardRestOfHand();
-            StartCoroutine(Draw5RandomCards());
-
-        }
-        else
-        {
-            Debug.Log("End Turn button disabled");
-        }
+        return enableEndTurn;
     }
 
     // Methods to Draw Cards
@@ -82,11 +85,18 @@ public class Deck : MonoBehaviour {
         foreach (Card cd in cardsInDiscard)
         {
             cardsInDeck.Add(cd);
-            MoveCard(cd, DRAW_POSITION + new Vector2(-offset, 0));
+            MoveCard(cd, DRAW_POSITION + new Vector3(-offset, 0, -offset));
             offset = offset + 0.1f;
         }
         offset = 0;
         cardsInDiscard = new List<Card>();
+    }
+
+    public void StartDrawCoroutine()
+    {
+        usedCards = 0;
+        cardsUsedDisplay.UpdateUsedDisplay(usedCards);
+        StartCoroutine(Draw5RandomCards());
     }
 
     public IEnumerator Draw5RandomCards()
@@ -151,7 +161,7 @@ public class Deck : MonoBehaviour {
         cardsInDiscard.Add(card);
         cardsInHand.Remove(card);
         MoveCard(cardsInDiscard[cardsInDiscard.Count - 1].gameObject.GetComponent<Card>(),
-            DISCARD_POSITION+new Vector2(0f,offset));
+            DISCARD_POSITION+new Vector3(0f,offset,offset));
         offset = offset + 0.1f;
     }
 
@@ -177,9 +187,9 @@ public class Deck : MonoBehaviour {
     }
 
     //Methods to move the card to specific postitions
-    public Vector2 GetHandPosition()
+    public Vector3 GetHandPosition()
     {
-        Vector2 targetPosition = new Vector2();
+        Vector3 targetPosition = new Vector3();
         switch (cardsInHand.Count)
         {
             case 1: targetPosition = CARD_POSITION1;break;
@@ -192,7 +202,7 @@ public class Deck : MonoBehaviour {
         return targetPosition;
     }
 
-    public void MoveCard(Card grabbedCard, Vector2 targetPosition)
+    public void MoveCard(Card grabbedCard, Vector3 targetPosition)
     {
         grabbedCard.transform.position = targetPosition;
     }
@@ -224,5 +234,13 @@ public class Deck : MonoBehaviour {
             Debug.Log("Discard card: "+cd);
         }
     }
-
+    public void UsedCard()
+    {
+        usedCards = usedCards + 1;
+        cardsUsedDisplay.UpdateUsedDisplay(usedCards);
+    }
+    public bool usedMaxCards()
+    {
+        return (usedCards >= maxCardsPerTurn);
+    }
 }
