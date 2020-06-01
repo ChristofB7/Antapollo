@@ -5,9 +5,11 @@ using UnityEditor;
 using UnityEngine;
 
 public class PlayerInfo : MonoBehaviour {
-    int maxHealth;
+    int maxHealth = 10;
     int health = 10;
     int armor = 2;
+    float maxSatiation = 2.0f;
+    float minSatiation = 0.1f;
     float satiation = 1.0f;
     [SerializeField] Deck deck;
     Deck deckInstance = null;
@@ -83,8 +85,47 @@ public class PlayerInfo : MonoBehaviour {
         return MaxCardsPerTurn;
     }
 
+    public void HealPlayer(int amount)
+    {
+        if(health + amount > maxHealth)
+        {
+            health = maxHealth;
+        }
+        else
+        {
+            health = health + amount;
+        }
+    }
+
+    public void IncreaseSatiation()
+    {
+        if (satiation >= maxSatiation)
+        {
+            satiation = maxSatiation;
+        }
+        else
+        {
+            Debug.Log("satiation: " + satiation);
+            satiation = satiation + 0.1f;
+            Debug.Log("satiation: " + satiation);
+        }
+
+    }
     public void LowerSatiation()
     {
-        satiation = satiation - 0.1f;
+        if (satiation <= minSatiation)
+        {
+            satiation = minSatiation;
+        }
+        else
+        {
+            Debug.Log("satiation: " + satiation);
+            satiation = satiation - 0.1f;
+            Debug.Log("satiation: " + satiation);
+        }
+    }
+    public void AddCard(Card card)
+    {
+        deck.AddCardToDeck(card);
     }
     }

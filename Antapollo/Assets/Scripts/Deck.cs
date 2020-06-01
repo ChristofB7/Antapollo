@@ -36,6 +36,13 @@ public class Deck : MonoBehaviour {
     bool enableCardInHand = false;
     bool enableEndTurn = false;
 
+
+
+    public void AddCardToDeck(Card card)
+    {
+        var newCard = Instantiate(card, new Vector3(transform.position.x -20, transform.position.y -20, transform.position.z -20), Quaternion.identity);
+        newCard.transform.parent = gameObject.transform;
+    }
     public void StartBattle()
     {
         cardsUsedDisplay = FindObjectOfType<CardsUsedDisplay>();

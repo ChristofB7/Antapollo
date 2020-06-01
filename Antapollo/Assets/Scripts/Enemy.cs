@@ -20,8 +20,8 @@ public class Enemy : MonoBehaviour
     Canvas nextMoveCanvas;
     Image nextMoveImage;
     TextMeshProUGUI amountOfNextText;
-    [SerializeField] Sprite attackSprite;
-    [SerializeField] Sprite blockSprite;
+    [SerializeField] Sprite attackSprite = null;
+    [SerializeField] Sprite blockSprite = null;
 
     private void Start()
     {

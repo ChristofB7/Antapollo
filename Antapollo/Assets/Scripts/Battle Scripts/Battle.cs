@@ -139,4 +139,9 @@ public class Battle : MonoBehaviour
         enemyArmorDisplay.UpdateDisplay();
     }
 
+    public void HealPlayer(int amount)
+    {
+        player.HealPlayer(amount);
+        playerHealthDisplay.UpdateDisplay();
+    }
 }
