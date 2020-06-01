@@ -70,6 +70,11 @@ public class Battle : MonoBehaviour
         enemyArmorDisplay.UpdateDisplay();
     }
 
+    public int CalculateAttack(int damage)
+    {
+        return Mathf.RoundToInt(damage * player.GetSatiation());
+    }
+
     public void PlayerAttack(int damage)
     {
 

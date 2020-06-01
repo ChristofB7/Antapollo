@@ -248,4 +248,9 @@ public class Deck : MonoBehaviour {
     {
         return (usedCards >= maxCardsPerTurn);
     }
+
+    public Battle GetBattle()
+    {
+        return battle;
+    }
 }
