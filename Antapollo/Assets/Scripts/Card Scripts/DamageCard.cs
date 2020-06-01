@@ -15,7 +15,7 @@ public class DamageCard : MonoBehaviour
     }
     private void Start()
     {
-        if (gameObject.transform.parent.GetComponent<Deck>())
+        if (gameObject.transform.parent)
         {
             parent = gameObject.transform.parent.GetComponent<Deck>();
             if (parent)

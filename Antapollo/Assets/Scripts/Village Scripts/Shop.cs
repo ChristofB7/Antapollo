@@ -10,4 +10,9 @@ public class Shop : MonoBehaviour
     {
         SceneManager.LoadScene(2);
     }
+    public void SellACard()
+    {
+        SceneManager.LoadScene(4);
+
+    }
 }

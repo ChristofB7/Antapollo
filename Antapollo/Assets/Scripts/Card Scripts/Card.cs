@@ -5,10 +5,12 @@ using UnityEngine;
 public class Card : MonoBehaviour
 {
     Shop shop;
+    Sell sell;
     Battle battle;
     Deck parentDeck = null;
     private void Start() 
     {
+        sell = FindObjectOfType<Sell>();
         shop = FindObjectOfType<Shop>();
         battle = FindObjectOfType<Battle>();
         if (gameObject.transform.parent)
@@ -22,9 +24,10 @@ public class Card : MonoBehaviour
     }
     private void OnMouseDown()
     {
+
         if (shop)
         {
-           FindObjectOfType<PlayerInfo>().AddCard(gameObject.GetComponent<Card>());
+            FindObjectOfType<PlayerInfo>().AddCard(gameObject.GetComponent<Card>());
         }
         else if (parentDeck && parentDeck.cardInHand(gameObject.GetComponent<Card>()) && !parentDeck.usedMaxCards())
         {
@@ -45,9 +48,18 @@ public class Card : MonoBehaviour
         }
         else
         {
-            Debug.Log("Card is not in hand, reached max cards, or no parent object found");
+            sell = FindObjectOfType<Sell>();
+            if (sell)
+            {
+                Destroy(gameObject);
+                sell.MoveDeckBack();
+            }
+            else
+            {
+                Debug.Log("Card is not in hand, reached max cards, or no parent object found");
+            }
+
         }
-        
     }
 
 }

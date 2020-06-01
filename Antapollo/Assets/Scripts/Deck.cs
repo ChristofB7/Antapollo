@@ -40,7 +40,8 @@ public class Deck : MonoBehaviour {
 
     public void AddCardToDeck(Card card)
     {
-        var newCard = Instantiate(card, new Vector3(transform.position.x -20, transform.position.y -20, transform.position.z -20), Quaternion.identity);
+        int childCountOffset = (gameObject.transform.childCount);
+        var newCard = Instantiate(card, new Vector3(transform.position.x-15 + (childCountOffset), transform.position.y-5, transform.position.z+childCountOffset), Quaternion.identity);
         newCard.transform.parent = gameObject.transform;
     }
     public void StartBattle()
