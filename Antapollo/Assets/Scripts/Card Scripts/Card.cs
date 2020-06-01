@@ -28,6 +28,7 @@ public class Card : MonoBehaviour
         if (shop)
         {
             FindObjectOfType<PlayerInfo>().AddCard(gameObject.GetComponent<Card>());
+            shop.RemoveAllBuyableCards();
         }
         else if (parentDeck && parentDeck.cardInHand(gameObject.GetComponent<Card>()) && !parentDeck.usedMaxCards())
         {
@@ -53,6 +54,7 @@ public class Card : MonoBehaviour
             {
                 Destroy(gameObject);
                 sell.MoveDeckBack();
+                sell.RemoveGoBackButton();
             }
             else
             {

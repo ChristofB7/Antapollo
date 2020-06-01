@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Diagnostics.Tracing;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class Sell : MonoBehaviour
 {
@@ -10,6 +11,9 @@ public class Sell : MonoBehaviour
     GameObject deck;
     int column = 0;
     int row = 0;
+
+    [SerializeField] Button goBackButton = null;
+    [SerializeField] Button worldMapButton = null;
     public void GoBackToShop()
     {
         SceneManager.LoadScene(3);
@@ -28,8 +32,14 @@ public class Sell : MonoBehaviour
                 column = column+2;
                 row = 0;
             }
-
         }
+    }
+
+    public void RemoveGoBackButton()
+    {
+        goBackButton.transform.position = new Vector3(-10, -10, 0);
+        Destroy(goBackButton);
+        worldMapButton.transform.position = new Vector3(1, 1, 0);
     }
 
     public void Start()
@@ -44,5 +54,11 @@ public class Sell : MonoBehaviour
     {
         player.transform.position = new Vector3(-100, -100, 0);
         player.transform.localScale = new Vector3(1f, 1f, 1f);
+    }
+
+    public void BackToWorldMap()
+    {
+        MoveDeckBack();
+        SceneManager.LoadScene(0);
     }
 }
