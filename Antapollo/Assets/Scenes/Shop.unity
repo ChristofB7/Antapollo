@@ -150,9 +150,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cb78ee61e8ed32b41aa15d7579fea3f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ReturnToVillage: {fileID: 743141350}
-  Sell: {fileID: 1843359957}
-  BackToWorldMap: {fileID: 1176806672}
+  returnToVillage: {fileID: 743141350}
+  sellButton: {fileID: 1843359957}
+  backToWorldMapButton: {fileID: 1176806672}
 --- !u!4 &332230806
 Transform:
   m_ObjectHideFlags: 0

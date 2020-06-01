@@ -870,8 +870,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b3db73597ad06142aa621a7c4866a0a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GoBackButton: {fileID: 654599967}
-  WorldMapButton: {fileID: 296925399}
+  goBackButton: {fileID: 654599967}
+  worldMapButton: {fileID: 296925399}
 --- !u!1 &1030347209
 GameObject:
   m_ObjectHideFlags: 0
