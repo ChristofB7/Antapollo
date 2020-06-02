@@ -10,8 +10,8 @@ public class Enemy : MonoBehaviour
     Battle battle;
     [SerializeField] int damage = 3;
     [SerializeField] int armorUpAmount = 2;
-    const int MAX_HEALTH = 5;
-    int health = 5;
+    [SerializeField] int MAX_HEALTH = 5;
+    [SerializeField] int health = 5;
     int armor = 0;
     int numberOfMoves = 2;
     //string name = "enemy";

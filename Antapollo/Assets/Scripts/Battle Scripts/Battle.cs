@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Battle : MonoBehaviour
 {
@@ -98,7 +99,6 @@ public class Battle : MonoBehaviour
         winCanvas.gameObject.SetActive(true);
         winCanvas.transform.position = new Vector3(5,3,1);
         Time.timeScale = 0f;
-        Debug.Log("win the game");
         player.LowerSatiation();
     }
 
@@ -148,5 +148,17 @@ public class Battle : MonoBehaviour
     {
         player.HealPlayer(amount);
         playerHealthDisplay.UpdateDisplay();
+    }
+
+    public void AddCardToDeck()
+    {
+        Debug.Log("Add this card to the deck");
+        winCanvas.gameObject.transform.GetChild(2).transform.position = new Vector3(-10,-10,0);
+    }
+
+    public void ReturnToWorldMap()
+    {
+        Time.timeScale = 1f;
+        SceneManager.LoadScene(0);
     }
 }

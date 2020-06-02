@@ -16,11 +16,11 @@ public class Deck : MonoBehaviour {
     int maxCardsPerTurn;
 
     //Card Positions
-    static private Vector3 CARD_POSITION1 = new Vector3(-1, 2, 0);
-    static private Vector3 CARD_POSITION2 = new Vector3(2, 2, 0);
-    static private Vector3 CARD_POSITION3 = new Vector3(5, 2, 0);
-    static private Vector3 CARD_POSITION4 = new Vector3(8, 2, 0);
-    static private Vector3 CARD_POSITION5 = new Vector3(11, 2, 0);
+    static private Vector3 CARD_POSITION1 = new Vector3(-1, 1, 0);
+    static private Vector3 CARD_POSITION2 = new Vector3(2, 1, 0);
+    static private Vector3 CARD_POSITION3 = new Vector3(5, 1, 0);
+    static private Vector3 CARD_POSITION4 = new Vector3(8, 1, 0);
+    static private Vector3 CARD_POSITION5 = new Vector3(11, 1, 0);
     static private Vector3 DRAW_POSITION = new Vector3(0, -2, 0);
     static private Vector3 DISCARD_POSITION = new Vector3(13, -2 ,0);
 

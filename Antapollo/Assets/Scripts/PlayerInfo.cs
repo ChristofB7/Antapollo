@@ -7,7 +7,7 @@ using UnityEngine;
 public class PlayerInfo : MonoBehaviour {
     int maxHealth = 10;
     int health = 10;
-    int armor = 2;
+    int armor = 0;
     float maxSatiation = 2.0f;
     float minSatiation = 0.1f;
     float satiation = 1.0f;
