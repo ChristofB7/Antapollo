@@ -4,12 +4,12 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using TMPro;
 
-public class BattleEncounter : Encounter
+public class TownEncounter : Encounter
 {
-    int sceneIndex = 1;
+    int sceneIndex = 2;
 
-    //this info to be sent to battle handler and loader
-    [SerializeField] Enemy enemy1, enemy2, enemy3, enemy4;
+    //this info to be sent to town handler and loader
+    [SerializeField] BattleEncounter fight;
 
     override public void loadScene()
     {
