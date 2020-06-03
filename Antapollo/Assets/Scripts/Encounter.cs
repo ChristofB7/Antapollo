@@ -15,9 +15,6 @@ public class Encounter : MonoBehaviour
     //the UI panel that will be initialized by on selection
     [SerializeField] EncounterPanel panel;
 
-    //the index of the encounter scene
-    int sceneIndex;
-
     //variable to determine whether the player is in the hit box
     private bool playerIsOver = false;
 
@@ -79,8 +76,11 @@ public class Encounter : MonoBehaviour
 
     public void loadEncounter()
     {
-        //hides the object and disables hitbox
-        hideFlags = HideFlags.HideAndDontSave;
+        //hides the object
+        GetComponent<SpriteRenderer>().enabled = false;
+
+        DontDestroyOnLoad(this);
+
 
         loadScene();
 
@@ -102,6 +102,6 @@ public class Encounter : MonoBehaviour
     virtual public void loadScene()
     {
         //prepares battle stage
-        SceneManager.LoadSceneAsync(sceneIndex);
+        SceneManager.LoadSceneAsync(0);
     }
 }

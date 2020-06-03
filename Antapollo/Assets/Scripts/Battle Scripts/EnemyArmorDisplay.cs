@@ -7,12 +7,14 @@ public class EnemyArmorDisplay : MonoBehaviour
 {
     TextMeshProUGUI enemyArmorText;
     Enemy enemy;
+    Battle battle;
 
-    // Update is called once per frame
-    private void Start()
+    // Run manually on initialization in order to ensure load order
+    public void setUp()
     {
+        battle = FindObjectOfType<Battle>();
         enemyArmorText = gameObject.transform.GetChild(0).GetComponent<TextMeshProUGUI>();
-        enemy = FindObjectOfType<Enemy>();
+        enemy = battle.getEnemy(0);
         UpdateDisplay();
     }
     public void UpdateDisplay()

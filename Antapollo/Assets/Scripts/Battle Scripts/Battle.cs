@@ -17,23 +17,37 @@ public class Battle : MonoBehaviour
     ArmorDisplay playerArmorDisplay;
 
     //Enemy Information
+    //enemy spawn location
+    Vector3 ENEMY_LOCATION1 = new Vector3(10.69334f, 5.029436f, 0);
+    Enemy enemyPreFab;
     Enemy enemy;
     EnemyHealthDisplay enemyHealthDisplay;
     EnemyArmorDisplay enemyArmorDisplay;
 
-
+    //the battle encounter that contains info
+    BattleEncounter encounter;
 
     // Start is called before the first frame update
     void Start()
     {
+        //sets the encounter
+        encounter = FindObjectOfType<BattleEncounter>();
+        //spawns enemy
+        enemyPreFab = encounter.getEnemy(0);
+        enemy = Instantiate(enemyPreFab, ENEMY_LOCATION1, Quaternion.identity);
+
         winCanvas.gameObject.SetActive(false);
         loseCanvas.gameObject.SetActive(false);
         player = FindObjectOfType<PlayerInfo>();
-        enemy = FindObjectOfType<Enemy>();
+        //enemy = FindObjectOfType<Enemy>();
         playerHealthDisplay = FindObjectOfType<HealthDisplay>();
         playerArmorDisplay = FindObjectOfType<ArmorDisplay>();
         enemyHealthDisplay = FindObjectOfType<EnemyHealthDisplay>();
         enemyArmorDisplay = FindObjectOfType<EnemyArmorDisplay>();
+
+        //initializes dislays
+        enemyHealthDisplay.setUp();
+        enemyArmorDisplay.setUp();
 
         player.StartBattle();
     }
@@ -160,5 +174,11 @@ public class Battle : MonoBehaviour
     {
         Time.timeScale = 1f;
         SceneManager.LoadScene(0);
+    }
+
+    public Enemy getEnemy(int index)
+    {
+        print(enemy);
+        return enemy;
     }
 }
