@@ -104,4 +104,9 @@ public class Encounter : MonoBehaviour
         //prepares battle stage
         SceneManager.LoadSceneAsync(0);
     }
+
+    public Card getCard(int index)
+    {
+        return card1;
+    }
 }

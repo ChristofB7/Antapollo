@@ -11,8 +11,18 @@ public class Shop : MonoBehaviour
     [SerializeField] Button sellButton = null;
     [SerializeField] Button backToWorldMapButton = null;
 
+    //card spawn location
+    Vector3 INVENTORY_POSITION = new Vector3(4.5f, 3.25f, 0);
+    TownEncounter encounter;
+    Card cardPreFab;
+    Card card;
+
+
     public void Start()
     {
+        encounter = FindObjectOfType<TownEncounter>();
+        cardPreFab = encounter.getCard(0);
+        card = Instantiate(cardPreFab, INVENTORY_POSITION, Quaternion.identity, gameObject.transform);
         player = FindObjectOfType<PlayerInfo>();
     }
     // Start is called before the first frame update
