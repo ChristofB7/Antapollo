@@ -19,4 +19,16 @@ public class BattleEncounter : Encounter
     {
         return enemy1;
     }
+
+    public override void searchAndDestroy()
+    {
+        foreach (BattleEncounter enc in FindObjectsOfType<BattleEncounter>())
+        {
+            if (enc.name == gameObject.name)
+            {
+                enc.killListenter();
+                Destroy(enc.gameObject);
+            }
+        }
+    }
 }

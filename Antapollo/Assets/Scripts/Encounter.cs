@@ -5,6 +5,9 @@ using UnityEngine.SceneManagement;
 
 public class Encounter : MonoBehaviour
 {
+    //used to determine if this encounter should be deleted from the map
+    bool encounterDone = false;
+
     //this info to be sent to battle handler and loader
     [SerializeField] string encounterName;
     [SerializeField] Sprite background;
@@ -76,21 +79,35 @@ public class Encounter : MonoBehaviour
 
     public void loadEncounter()
     {
-        setVisible(false);
-
         DontDestroyOnLoad(this);
 
 
         loadScene();
 
-        //links lauch method to sceneLoaded event (I have no Idea if I'm using the right terminology)
         SceneManager.sceneLoaded += launchScene;
     }
 
-    //Launches the Battle Scene
+    //Launches the Battle Scene and handles world scene load
     private void launchScene(Scene scene, LoadSceneMode mode)
     {
-        SceneManager.SetActiveScene(scene);
+        transform.Translate(new Vector3(-50, -50, 0));
+        //if scene is world map
+        if (scene.buildIndex == 0)
+        {
+            if (encounterDone)
+            {
+                searchAndDestroy();
+            }
+            else
+            {
+                killListenter();
+                Destroy(gameObject);
+            }
+        }
+        else if(scene.buildIndex == 1 || scene.buildIndex == 2)
+        {
+            SceneManager.SetActiveScene(scene);
+        }
     }
 
     public void setSelected(bool sel)
@@ -104,14 +121,33 @@ public class Encounter : MonoBehaviour
         SceneManager.LoadSceneAsync(0);
     }
 
-    public void setVisible(bool visible)
-    {
-        //hides the object
-        GetComponent<SpriteRenderer>().enabled = visible;
-    }
-
     public Card getCard(int index)
     {
         return card1;
+    }
+
+    //Call this with true when wishing to delete encounter after completion
+    public void setEncounterDone(bool done)
+    {
+        encounterDone = done;
+    }
+
+    //used to unlink the load event from the function
+    public void killListenter()
+    {
+        SceneManager.sceneLoaded -= launchScene;
+    }
+
+    //searches for other all instances of this object and destroys them, overriden in child classes to narrow search field.
+    virtual public void searchAndDestroy()
+    {
+        foreach (Encounter enc in FindObjectsOfType<Encounter>())
+        {
+            if (enc.name == gameObject.name)
+            {
+                enc.killListenter();
+                Destroy(enc.gameObject);
+            }
+         }
     }
 }

@@ -12,6 +12,8 @@ public class Sell : MonoBehaviour
     int column = 0;
     int row = 0;
 
+    Encounter encounter;
+
     [SerializeField] Button goBackButton = null;
     [SerializeField] Button worldMapButton = null;
     public void GoBackToShop()
@@ -44,6 +46,7 @@ public class Sell : MonoBehaviour
 
     public void Start()
     {
+        encounter = FindObjectOfType<Encounter>();
         player = FindObjectOfType<PlayerInfo>();
         player.transform.localScale = new Vector3(0.5f, 0.5f, 1f);
         MoveAllCards();
@@ -59,6 +62,7 @@ public class Sell : MonoBehaviour
     public void BackToWorldMap()
     {
         MoveDeckBack();
+        encounter.setEncounterDone(true);
         SceneManager.LoadScene(0);
     }
 }

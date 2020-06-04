@@ -112,6 +112,7 @@ public class Battle : MonoBehaviour
 
     private void WinGame()
     {
+        win = true;
         gameOver = true;
         winCanvas.gameObject.SetActive(true);
         winCanvas.transform.position = new Vector3(5,3,1);
@@ -170,16 +171,17 @@ public class Battle : MonoBehaviour
     public void AddCardToDeck()
     {
         Debug.Log("Add this card to the deck");
+        winCanvas.gameObject.transform.GetChild(2).transform.position = new Vector3(-10,-10,0);
+        Time.timeScale = 1f;
         //loads the reward scene
         SceneManager.LoadScene(5);
-        winCanvas.gameObject.transform.GetChild(2).transform.position = new Vector3(-10,-10,0);
     }
 
     public void ReturnToWorldMap()
     {
         if (win)
         {
-            Destroy(encounter);
+            encounter.setEncounterDone(true);
         }
         Time.timeScale = 1f;
         SceneManager.LoadScene(0);

@@ -14,4 +14,16 @@ public class TownEncounter : Encounter
         //prepares the towns stage
         SceneManager.LoadSceneAsync(2);
     }
+
+    public override void searchAndDestroy()
+    {
+        foreach (TownEncounter enc in FindObjectsOfType<TownEncounter>())
+        {
+            if (enc.name == gameObject.name)
+            {
+                enc.killListenter();
+                Destroy(enc.gameObject);
+            }
+        }
+    }
 }
