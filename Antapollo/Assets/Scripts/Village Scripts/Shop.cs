@@ -13,14 +13,14 @@ public class Shop : MonoBehaviour
 
     //card spawn location
     Vector3 INVENTORY_POSITION = new Vector3(4.5f, 3.25f, 0);
-    TownEncounter encounter;
+    Encounter encounter;
     Card cardPreFab;
     Card card;
 
 
     public void Start()
     {
-        encounter = FindObjectOfType<TownEncounter>();
+        encounter = FindObjectOfType<Encounter>();
         cardPreFab = encounter.getCard(0);
         card = Instantiate(cardPreFab, INVENTORY_POSITION, Quaternion.identity, gameObject.transform);
         player = FindObjectOfType<PlayerInfo>();
@@ -57,6 +57,7 @@ public class Shop : MonoBehaviour
 
     public void ReturnToWorldMap()
     {
+        Destroy(encounter);
         player.transform.position = new Vector3(-1, -1, -100);
         SceneManager.LoadScene(0);
     }

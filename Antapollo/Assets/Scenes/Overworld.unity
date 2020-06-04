@@ -155,7 +155,7 @@ MonoBehaviour:
   encounterName: 
   background: {fileID: 0}
   music: {fileID: 0}
-  card1: {fileID: 0}
+  card1: {fileID: 2051951997826731977, guid: 5a7f8d21a1ff2c242b6dd08b1a41e0f8, type: 3}
   card2: {fileID: 0}
   card3: {fileID: 0}
   panel: {fileID: 8928989375525030365, guid: 755366872990a4f4ba8e77bf47df7dbc, type: 3}

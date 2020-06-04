@@ -11,6 +11,9 @@ public class Battle : MonoBehaviour
     [SerializeField]Canvas loseCanvas = null;
     bool gameOver = false;
 
+    //used to descide if the encounter should be removed from the map.
+    bool win = false;
+
     //Player Information
     PlayerInfo player;
     HealthDisplay playerHealthDisplay;
@@ -167,11 +170,17 @@ public class Battle : MonoBehaviour
     public void AddCardToDeck()
     {
         Debug.Log("Add this card to the deck");
+        //loads the reward scene
+        SceneManager.LoadScene(5);
         winCanvas.gameObject.transform.GetChild(2).transform.position = new Vector3(-10,-10,0);
     }
 
     public void ReturnToWorldMap()
     {
+        if (win)
+        {
+            Destroy(encounter);
+        }
         Time.timeScale = 1f;
         SceneManager.LoadScene(0);
     }

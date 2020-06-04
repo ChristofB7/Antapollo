@@ -20,4 +20,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Sell.unity
     guid: 71d6d171d76eae64ca4ccb243215b7a2
+  - enabled: 1
+    path: Assets/Scenes/RewardScreen.unity
+    guid: 22a79f9ea18415d4e825d920d2cdc0e7
   m_configObjects: {}

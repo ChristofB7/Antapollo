@@ -76,8 +76,7 @@ public class Encounter : MonoBehaviour
 
     public void loadEncounter()
     {
-        //hides the object
-        GetComponent<SpriteRenderer>().enabled = false;
+        setVisible(false);
 
         DontDestroyOnLoad(this);
 
@@ -103,6 +102,12 @@ public class Encounter : MonoBehaviour
     {
         //prepares battle stage
         SceneManager.LoadSceneAsync(0);
+    }
+
+    public void setVisible(bool visible)
+    {
+        //hides the object
+        GetComponent<SpriteRenderer>().enabled = visible;
     }
 
     public Card getCard(int index)
