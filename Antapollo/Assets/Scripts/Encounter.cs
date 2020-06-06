@@ -5,14 +5,16 @@ using UnityEngine.SceneManagement;
 
 public class Encounter : MonoBehaviour
 {
+    [SerializeField] bool isTown = false;
     //used to determine if this encounter should be deleted from the map
     bool encounterDone = false;
 
-    //this info to be sent to battle handler and loader
+    //this info to be sent to handler and loader
     [SerializeField] string encounterName;
     [SerializeField] Sprite background;
     [SerializeField] AudioClip music;
     [SerializeField] Card card1, card2, card3;
+    [SerializeField] Enemy enemy1, enemy2, enemy3, enemy4;
     //[SerializeField] Artifact art1, art2, art3;
 
     //the UI panel that will be initialized by on selection
@@ -115,10 +117,18 @@ public class Encounter : MonoBehaviour
         selected = sel;
     }
 
-    virtual public void loadScene()
+    public void loadScene()
     {
-        //prepares battle stage
-        SceneManager.LoadSceneAsync(0);
+        if (isTown)
+        {
+            //load town
+            SceneManager.LoadSceneAsync(2);
+        }
+        else
+        {
+            //load battle
+            SceneManager.LoadSceneAsync(1);
+        }
     }
 
     public Card getCard(int index)
@@ -138,8 +148,13 @@ public class Encounter : MonoBehaviour
         SceneManager.sceneLoaded -= launchScene;
     }
 
+    public Enemy getEnemy(int index)
+    {
+        return enemy1;
+    }
+
     //searches for other all instances of this object and destroys them, overriden in child classes to narrow search field.
-    virtual public void searchAndDestroy()
+    public void searchAndDestroy()
     {
         foreach (Encounter enc in FindObjectsOfType<Encounter>())
         {

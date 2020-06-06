@@ -28,13 +28,13 @@ public class Battle : MonoBehaviour
     EnemyArmorDisplay enemyArmorDisplay;
 
     //the battle encounter that contains info
-    BattleEncounter encounter;
+    Encounter encounter;
 
     // Start is called before the first frame update
     void Start()
     {
         //sets the encounter
-        encounter = FindObjectOfType<BattleEncounter>();
+        encounter = FindObjectOfType<Encounter>();
         //spawns enemy
         enemyPreFab = encounter.getEnemy(0);
         enemy = Instantiate(enemyPreFab, ENEMY_LOCATION1, Quaternion.identity);

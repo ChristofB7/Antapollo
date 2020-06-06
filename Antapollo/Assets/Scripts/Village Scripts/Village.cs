@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class Village : MonoBehaviour
 {
-    TownEncounter encounter;
+    Encounter encounter;
 
     PlayerInfo player;
     [SerializeField] Button battleButton = null;
@@ -18,7 +18,7 @@ public class Village : MonoBehaviour
 
     public void Start()
     {
-        encounter = FindObjectOfType<TownEncounter>();
+        encounter = FindObjectOfType<Encounter>();
         player = FindObjectOfType<PlayerInfo>();
     }
     public void Battle()
