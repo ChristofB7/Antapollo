@@ -24,6 +24,10 @@ public class EncounterPanel : MonoBehaviour
     public void setTarget(Encounter iEncounter)
     {
         encounter = iEncounter;
+        transform.GetChild(6).gameObject.GetComponent<Image>().sprite = encounter.getCard(0).getSprite();
+        transform.GetChild(6).gameObject.GetComponent<Image>().preserveAspect = true;
+        transform.GetChild(7).gameObject.GetComponent<Image>().sprite = encounter.getEnemy(0).getSprite();
+        transform.GetChild(7).gameObject.GetComponent<Image>().preserveAspect = true;
     }
 
     //closes the panel

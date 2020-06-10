@@ -123,4 +123,9 @@ public class Enemy : MonoBehaviour
     {
         armor = armorToSet;
     }
+
+    public Sprite getSprite()
+    {
+        return GetComponent<SpriteRenderer>().sprite;
+    }
 }

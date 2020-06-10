@@ -72,7 +72,7 @@ public class Encounter : MonoBehaviour
     {
         if (isHidden)
         {
-            if(Vector3.Distance(transform.position, player.transform.position) < 5)
+            if(Vector3.Distance(transform.position, player.transform.position) < 3)
             {
                 GetComponent<SpriteRenderer>().enabled = true;
             }
@@ -103,7 +103,7 @@ public class Encounter : MonoBehaviour
     //spawns the panel
     void spawnPanel()
     {
-        panelObject = Instantiate(panel, new Vector3(this.transform.position.x + 5, this.transform.position.y + 5, 0), Quaternion.identity) as EncounterPanel;
+        panelObject = Instantiate(panel, new Vector3(this.transform.position.x + 3, this.transform.position.y + 3, 0), Quaternion.identity) as EncounterPanel;
         panelObject.setTarget(GetComponent<Encounter>());
     }
 

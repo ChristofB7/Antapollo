@@ -70,4 +70,9 @@ public class Card : MonoBehaviour
     {
         return ID;
     }
+
+    public Sprite getSprite()
+    {
+        return GetComponent<SpriteRenderer>().sprite;
+    }
 }
