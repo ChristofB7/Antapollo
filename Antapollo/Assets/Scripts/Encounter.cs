@@ -7,7 +7,8 @@ public class Encounter : MonoBehaviour
 {
     [SerializeField] bool isTown = false;
     //used to determine if this encounter should be deleted from the map
-   int encounterDone = 0;
+    int encounterDone = 0;
+    [SerializeField] bool isHidden = false; 
 
     //this info to be sent to handler and loader
     [SerializeField] string encounterName;
@@ -32,8 +33,20 @@ public class Encounter : MonoBehaviour
     //the hitbox
     BoxCollider2D box;
 
+    PlayerMapIcon player;
+
+    private void Awake()
+    {
+        if (isHidden)
+        {
+            GetComponent<SpriteRenderer>().enabled = false;
+        }
+    }
+
     private void Start()
     {
+        player = FindObjectOfType<PlayerMapIcon>();
+
         //sets the hitbox
         box = GetComponent<BoxCollider2D>();
 
@@ -57,6 +70,14 @@ public class Encounter : MonoBehaviour
 
     private void Update()
     {
+        if (isHidden)
+        {
+            if(Vector3.Distance(transform.position, player.transform.position) < 5)
+            {
+                GetComponent<SpriteRenderer>().enabled = true;
+            }
+        }
+
         if (playerIsOver)
         {
             //On space open panel if the panel is not already open
