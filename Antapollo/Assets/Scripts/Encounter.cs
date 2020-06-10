@@ -187,4 +187,9 @@ public class Encounter : MonoBehaviour
         PlayerPrefs.SetInt(encounterName, encounterDone);
         PlayerPrefs.Save();
     }
+
+    public string getEncounterName()
+    {
+        return encounterName;
+    }
 }

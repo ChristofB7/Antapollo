@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class EncounterPanel : MonoBehaviour
 {
@@ -24,6 +25,7 @@ public class EncounterPanel : MonoBehaviour
     public void setTarget(Encounter iEncounter)
     {
         encounter = iEncounter;
+        transform.GetChild(3).gameObject.GetComponent<TextMeshProUGUI>().SetText(encounter.getEncounterName());
         transform.GetChild(6).gameObject.GetComponent<Image>().sprite = encounter.getCard(0).getSprite();
         transform.GetChild(6).gameObject.GetComponent<Image>().preserveAspect = true;
         transform.GetChild(7).gameObject.GetComponent<Image>().sprite = encounter.getEnemy(0).getSprite();

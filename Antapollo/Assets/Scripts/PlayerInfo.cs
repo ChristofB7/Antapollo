@@ -103,6 +103,11 @@ public class PlayerInfo : MonoBehaviour {
         return satiation;
     }
 
+    public float GetMaxSatiation()
+    {
+        return maxSatiation;
+    }
+
     public Deck GetDeckInstance()
     {
         return deckInstance;
@@ -172,5 +177,10 @@ public class PlayerInfo : MonoBehaviour {
             PlayerPrefs.SetInt("c" + x.ToString(), deck.transform.GetChild(x).GetComponent<Card>().getID());
         }
         PlayerPrefs.Save();
+    }
+
+    public int GetMaxHealth()
+    {
+        return maxHealth;
     }
 }
