@@ -58,7 +58,7 @@ public class Shop : MonoBehaviour
     public void ReturnToWorldMap()
     {
         player.transform.position = new Vector3(-1, -1, -100);
-        encounter.setEncounterDone(true);
+        encounter.setEncounterDone(1);
         SceneManager.LoadScene(0);
     }
 

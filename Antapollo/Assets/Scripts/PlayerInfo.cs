@@ -18,6 +18,39 @@ public class PlayerInfo : MonoBehaviour {
     private void Awake()
     {
         deck = gameObject.transform.GetChild(0).GetComponent<Deck>();
+
+        //sets data if there is a save
+        if (PlayerPrefs.HasKey("deckSize"))
+        {
+            string[] cardsFolder = { "Assets/Prefabs/Cards/Cards" };
+            string[] assetGUIDs = AssetDatabase.FindAssets("Card", cardsFolder);
+
+            //contains all of the cards in the game
+            Card[] availableCards = new Card[assetGUIDs.Length];
+
+            //sets availableCards
+            for(int x = 0; x < assetGUIDs.Length; x++)
+            {
+                availableCards[x] = AssetDatabase.LoadAssetAtPath(AssetDatabase.GUIDToAssetPath(assetGUIDs[x]), typeof(Card)) as Card;
+            }
+
+            //Clears default deck
+            for (int x = 0; x < deck.transform.childCount; x++)
+            {
+                Destroy(deck.transform.GetChild(x).gameObject);
+            }
+
+            //sets deck based on save file
+            for (int x = 0; x < PlayerPrefs.GetInt("deckSize"); x++)
+            {
+                deck.AddCardToDeck(availableCards[PlayerPrefs.GetInt("c"+x.ToString())]);
+            }
+
+            //sets health and satiation
+            health = PlayerPrefs.GetInt("health");
+            satiation = PlayerPrefs.GetFloat("satiation");
+        }
+
         //if there are more than 1 players destroy the newest one
         int playerCount = FindObjectsOfType<PlayerInfo>().Length;
         if (playerCount > 1)
@@ -128,4 +161,16 @@ public class PlayerInfo : MonoBehaviour {
     {
         deck.AddCardToDeck(card);
     }
+
+    public void save()
+    {
+        PlayerPrefs.SetInt("health", health);
+        PlayerPrefs.SetFloat("satiation", satiation);
+        PlayerPrefs.SetInt("deckSize", deck.transform.childCount);
+        for (int x = 0; x < deck.transform.childCount; x++)
+        {
+            PlayerPrefs.SetInt("c" + x.ToString(), deck.transform.GetChild(x).GetComponent<Card>().getID());
+        }
+        PlayerPrefs.Save();
     }
+}

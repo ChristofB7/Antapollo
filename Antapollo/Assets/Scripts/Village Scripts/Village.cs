@@ -67,7 +67,7 @@ public class Village : MonoBehaviour
     }
     public void BackToWorldMap()
     {
-        encounter.setEncounterDone(true);
+        encounter.setEncounterDone(1);
         SceneManager.LoadScene(0);
     }
 

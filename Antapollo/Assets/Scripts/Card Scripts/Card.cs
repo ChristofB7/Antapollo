@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Card : MonoBehaviour
 {
+    //used for loading and saving, set to position in cards folder
+    [SerializeField] int ID = 0;
     Shop shop;
     Sell sell;
     Battle battle;
@@ -64,4 +66,8 @@ public class Card : MonoBehaviour
         }
     }
 
+    public int getID()
+    {
+        return ID;
+    }
 }

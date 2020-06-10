@@ -36,8 +36,6 @@ public class Deck : MonoBehaviour {
     bool enableCardInHand = false;
     bool enableEndTurn = false;
 
-
-
     public void AddCardToDeck(Card card)
     {
         int childCountOffset = (gameObject.transform.childCount);

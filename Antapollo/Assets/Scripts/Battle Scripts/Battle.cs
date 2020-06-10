@@ -181,7 +181,7 @@ public class Battle : MonoBehaviour
     {
         if (win)
         {
-            encounter.setEncounterDone(true);
+            encounter.setEncounterDone(1);
         }
         Time.timeScale = 1f;
         SceneManager.LoadScene(0);

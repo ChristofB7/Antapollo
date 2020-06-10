@@ -20,10 +20,21 @@ public class PlayerMapIcon : MonoBehaviour
     private void Start()
     {
         player = GetComponent<Rigidbody2D>();
+        if (PlayerPrefs.HasKey("posX"))
+        {
+            transform.position = new Vector3(PlayerPrefs.GetFloat("posX"), PlayerPrefs.GetFloat("posY"), 0);
+        }
     }
 
     void FixedUpdate()
     {
+        if(Input.GetAxis("Cancel") > 0)
+        {
+            FindObjectOfType<PlayerInfo>().save();
+            save();
+            Application.Quit();
+        }
+
        //finds the sign of the horz axis
         if (Input.GetAxisRaw("Horizontal") > 0)
         {
@@ -64,6 +75,14 @@ public class PlayerMapIcon : MonoBehaviour
 
         //moves player
         player.MovePosition(player.position + new Vector2(SPEED*horzAxis/diagonal, SPEED*vertAxis/diagonal));
+    }
+
+    public void save()
+    {
+        print(transform.position.x);
+        PlayerPrefs.SetFloat("posX", transform.position.x);
+        PlayerPrefs.SetFloat("posY", transform.position.y);
+        PlayerPrefs.Save();
     }
 
 }

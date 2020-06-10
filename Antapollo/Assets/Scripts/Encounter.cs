@@ -7,7 +7,7 @@ public class Encounter : MonoBehaviour
 {
     [SerializeField] bool isTown = false;
     //used to determine if this encounter should be deleted from the map
-    bool encounterDone = false;
+   int encounterDone = 0;
 
     //this info to be sent to handler and loader
     [SerializeField] string encounterName;
@@ -36,6 +36,13 @@ public class Encounter : MonoBehaviour
     {
         //sets the hitbox
         box = GetComponent<BoxCollider2D>();
+
+        //if the encounter is done
+        if (PlayerPrefs.GetInt(encounterName) == 1)
+        {
+            killListenter();
+            Destroy(gameObject);
+        }
     }
 
     //reads whether the player is in the hitbox
@@ -96,11 +103,11 @@ public class Encounter : MonoBehaviour
         //if scene is world map
         if (scene.buildIndex == 0)
         {
-            if (encounterDone)
-            {
-                searchAndDestroy();
-            }
-            else
+            save();
+            FindObjectOfType<PlayerInfo>().save();
+            FindObjectOfType<PlayerMapIcon>().save();
+            //if the encounter is done
+            if(PlayerPrefs.GetInt(encounterName) == 1)
             {
                 killListenter();
                 Destroy(gameObject);
@@ -137,7 +144,7 @@ public class Encounter : MonoBehaviour
     }
 
     //Call this with true when wishing to delete encounter after completion
-    public void setEncounterDone(bool done)
+    public void setEncounterDone(int done)
     {
         encounterDone = done;
     }
@@ -153,16 +160,10 @@ public class Encounter : MonoBehaviour
         return enemy1;
     }
 
-    //searches for other all instances of this object and destroys them, overriden in child classes to narrow search field.
-    public void searchAndDestroy()
+    //saves whether the encounter is done or not
+    private void save()
     {
-        foreach (Encounter enc in FindObjectsOfType<Encounter>())
-        {
-            if (enc.name == gameObject.name)
-            {
-                enc.killListenter();
-                Destroy(enc.gameObject);
-            }
-         }
+        PlayerPrefs.SetInt(encounterName, encounterDone);
+        PlayerPrefs.Save();
     }
 }

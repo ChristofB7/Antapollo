@@ -62,7 +62,7 @@ public class Sell : MonoBehaviour
     public void BackToWorldMap()
     {
         MoveDeckBack();
-        encounter.setEncounterDone(true);
+        encounter.setEncounterDone(1);
         SceneManager.LoadScene(0);
     }
 }
