@@ -43,7 +43,13 @@ public class PlayerInfo : MonoBehaviour {
             //sets deck based on save file
             for (int x = 0; x < PlayerPrefs.GetInt("deckSize"); x++)
             {
-                deck.AddCardToDeck(availableCards[PlayerPrefs.GetInt("c"+x.ToString())]);
+                for (int y = 0; y < availableCards.Length; y++)
+                {
+                    if(availableCards[y].getID() == PlayerPrefs.GetInt("c" + x.ToString()))
+                    {
+                        deck.AddCardToDeck(availableCards[y]);
+                    }
+                }
             }
 
             //sets health and satiation

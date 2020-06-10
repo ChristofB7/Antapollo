@@ -111,6 +111,9 @@ public class Encounter : MonoBehaviour
     {
         DontDestroyOnLoad(this);
 
+        save();
+        FindObjectOfType<PlayerInfo>().save();
+        FindObjectOfType<PlayerMapIcon>().save();
 
         loadScene();
 
@@ -124,11 +127,17 @@ public class Encounter : MonoBehaviour
         //if scene is world map
         if (scene.buildIndex == 0)
         {
+            if (PlayerPrefs.HasKey("posX"))
+            {
+                FindObjectOfType<PlayerMapIcon>().transform.position = new Vector3(PlayerPrefs.GetFloat("posX"), PlayerPrefs.GetFloat("posY"), 0);
+            }
+
             save();
             FindObjectOfType<PlayerInfo>().save();
             FindObjectOfType<PlayerMapIcon>().save();
+
             //if the encounter is done
-            if(PlayerPrefs.GetInt(encounterName) == 1)
+            if (PlayerPrefs.GetInt(encounterName) == 1)
             {
                 killListenter();
                 Destroy(gameObject);
