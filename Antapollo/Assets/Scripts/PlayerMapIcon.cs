@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerMapIcon : MonoBehaviour
 {
     //player move speed
-    const float SPEED = 0.2f;
+    const float SPEED = 7f;
 
     //is either 1 or the square root of 2. Used to ensure constant speed on diagonals
     private float diagonal = 1;
@@ -74,7 +74,7 @@ public class PlayerMapIcon : MonoBehaviour
         }
 
         //moves player
-        player.MovePosition(player.position + new Vector2(SPEED*horzAxis/diagonal, SPEED*vertAxis/diagonal));
+        player.velocity = new Vector2(SPEED*horzAxis/diagonal, SPEED*vertAxis/diagonal);
     }
 
     public void save()
