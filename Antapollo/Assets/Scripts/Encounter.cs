@@ -163,7 +163,16 @@ public class Encounter : MonoBehaviour
 
     public Card getCard(int index)
     {
-        return card1;
+        switch (index){
+            case 0:
+                return card1;
+            case 1:
+                return card2;
+            case 2:
+                return card3;
+            default:
+                return card1;
+        }
     }
 
     //Call this with true when wishing to delete encounter after completion
