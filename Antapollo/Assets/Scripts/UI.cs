@@ -2,28 +2,26 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class UI : MonoBehaviour
 {
-    Image satiationBar;
-    Transform satiationBlood;
-    Image healthBar;
+    TextMeshProUGUI healthText;
+    TextMeshProUGUI satText;
     PlayerInfo player;
-    float percentSatLost = 1f;
-    Vector3 bloodStartingScale;
 
     private void Awake()
     {
-        satiationBar = transform.GetChild(1).GetComponent<Image>();
-        satiationBlood = satiationBar.transform.GetChild(0).GetComponent<Transform>();
-        bloodStartingScale = satiationBar.transform.GetChild(0).transform.localScale;
-        healthBar = transform.GetChild(0).GetComponent<Image>();
+        healthText = transform.GetChild(0).transform.GetChild(0).gameObject.GetComponent<TextMeshProUGUI>();
+        satText = transform.GetChild(1).transform.GetChild(0).gameObject.GetComponent<TextMeshProUGUI>();
         player = FindObjectOfType<PlayerInfo>();
+        updateMeters(player.GetHealth(), player.GetSatiation());
     }
 
-    private void Update()
+    public void updateMeters(int health, float satiation)
     {
-        percentSatLost = player.GetSatiation() / player.GetMaxSatiation();
-        satiationBlood.transform.localScale = new Vector3(bloodStartingScale.x, bloodStartingScale.y * percentSatLost, bloodStartingScale.z);
+        float satShifted = satiation - 1;
+        healthText.text = health.ToString();
+        satText.text = satShifted.ToString();
     }
 }

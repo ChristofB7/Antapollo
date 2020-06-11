@@ -33,6 +33,8 @@ public class Encounter : MonoBehaviour
     //the hitbox
     BoxCollider2D box;
 
+    UI ui;
+
     PlayerMapIcon player;
 
     private void Awake()
@@ -56,6 +58,7 @@ public class Encounter : MonoBehaviour
             killListenter();
             Destroy(gameObject);
         }
+        ui = FindObjectOfType<UI>();
     }
 
     //reads whether the player is in the hitbox
@@ -135,6 +138,8 @@ public class Encounter : MonoBehaviour
             save();
             FindObjectOfType<PlayerInfo>().save();
             FindObjectOfType<PlayerMapIcon>().save();
+
+            ui.updateMeters(PlayerPrefs.GetInt("health"), PlayerPrefs.GetFloat("satiation"));
 
             //if the encounter is done
             if (PlayerPrefs.GetInt(encounterName) == 1)
