@@ -22,6 +22,6 @@ public class UI : MonoBehaviour
     {
         float satShifted = satiation - 1;
         healthText.text = health.ToString();
-        satText.text = satShifted.ToString();
+        satText.text = satShifted.ToString("0.0");
     }
 }

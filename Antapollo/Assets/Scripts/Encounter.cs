@@ -73,11 +73,14 @@ public class Encounter : MonoBehaviour
 
     private void Update()
     {
-        if (isHidden)
+        if (SceneManager.GetActiveScene().buildIndex == 0)
         {
-            if(Vector3.Distance(transform.position, player.transform.position) < 3)
+            if (isHidden)
             {
-                GetComponent<SpriteRenderer>().enabled = true;
+                if (Vector3.Distance(transform.position, player.transform.position) < 3)
+                {
+                    GetComponent<SpriteRenderer>().enabled = true;
+                }
             }
         }
 
