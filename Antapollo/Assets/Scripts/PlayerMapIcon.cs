@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEditor;
 
 public class PlayerMapIcon : MonoBehaviour
 {
@@ -17,30 +18,70 @@ public class PlayerMapIcon : MonoBehaviour
     //holds the rigid body component
     Rigidbody2D player;
 
+    PauseMenu menu;
+
+    private bool paused = false;
+    private bool pausePrimed = false;
+
     private void Start()
     {
+        menu = FindObjectOfType<PauseMenu>();
+
         player = GetComponent<Rigidbody2D>();
         if (PlayerPrefs.HasKey("posX"))
         {
             transform.position = new Vector3(PlayerPrefs.GetFloat("posX"), PlayerPrefs.GetFloat("posY"), 0);
         }
+        GetComponent<Rigidbody2D>().freezeRotation=true;
     }
 
     void FixedUpdate()
     {
         if(Input.GetAxis("Cancel") > 0)
         {
-            FindObjectOfType<PlayerInfo>().save();
-            save();
-            Application.Quit();
+            pausePrimed = true;
+        }
+        else if(pausePrimed == true)
+        {
+            if (paused)
+            {
+                menu.cont();
+                paused = false;
+            }
+            else
+            {
+                menu.GetComponent<Canvas>().enabled = true;
+                paused = true;
+            }
+            pausePrimed = false;
         }
 
-       //finds the sign of the horz axis
+        if (!paused)
+        {
+            playerMove();
+        }
+    }
+
+    public void save()
+    {
+        PlayerPrefs.SetFloat("posX", transform.position.x);
+        PlayerPrefs.SetFloat("posY", transform.position.y);
+        PlayerPrefs.Save();
+    }
+
+    public void setPaused(bool inPause)
+    {
+        paused = inPause;
+    }
+
+    private void playerMove()
+    {
+        //finds the sign of the horz axis
         if (Input.GetAxisRaw("Horizontal") > 0)
         {
             horzAxis = 1;
         }
-        else if(Input.GetAxisRaw("Horizontal") < 0)
+        else if (Input.GetAxisRaw("Horizontal") < 0)
         {
             horzAxis = -1;
         }
@@ -50,7 +91,7 @@ public class PlayerMapIcon : MonoBehaviour
         }
 
         //finds the sign of the vert axis
-        if(Input.GetAxisRaw("Vertical") > 0)
+        if (Input.GetAxisRaw("Vertical") > 0)
         {
             vertAxis = 1;
         }
@@ -64,7 +105,7 @@ public class PlayerMapIcon : MonoBehaviour
         }
 
         //checks if movement is diagonal
-        if(Input.GetAxisRaw("Horizontal") != 0 && Input.GetAxisRaw("Vertical") != 0)
+        if (Input.GetAxisRaw("Horizontal") != 0 && Input.GetAxisRaw("Vertical") != 0)
         {
             diagonal = Mathf.Sqrt(2.0f);
         }
@@ -74,14 +115,6 @@ public class PlayerMapIcon : MonoBehaviour
         }
 
         //moves player
-        player.velocity = new Vector2(SPEED*horzAxis/diagonal, SPEED*vertAxis/diagonal);
+        player.velocity = new Vector2(SPEED * horzAxis / diagonal, SPEED * vertAxis / diagonal);
     }
-
-    public void save()
-    {
-        PlayerPrefs.SetFloat("posX", transform.position.x);
-        PlayerPrefs.SetFloat("posY", transform.position.y);
-        PlayerPrefs.Save();
-    }
-
 }
