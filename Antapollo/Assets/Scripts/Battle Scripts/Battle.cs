@@ -189,7 +189,6 @@ public class Battle : MonoBehaviour
 
     public Enemy getEnemy(int index)
     {
-        print(enemy);
         return enemy;
     }
 }

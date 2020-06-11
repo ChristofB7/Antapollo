@@ -79,7 +79,6 @@ public class PlayerMapIcon : MonoBehaviour
 
     public void save()
     {
-        print(transform.position.x);
         PlayerPrefs.SetFloat("posX", transform.position.x);
         PlayerPrefs.SetFloat("posY", transform.position.y);
         PlayerPrefs.Save();

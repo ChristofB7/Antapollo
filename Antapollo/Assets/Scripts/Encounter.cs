@@ -21,8 +21,6 @@ public class Encounter : MonoBehaviour
     //the UI panel that will be initialized by on selection
     [SerializeField] EncounterPanel panel;
 
-    //variable to determine whether the player is in the hit box
-    private bool playerIsOver = false;
 
     //variable to determine whether the player has selected this encounter 
     private bool selected = false;
@@ -64,11 +62,19 @@ public class Encounter : MonoBehaviour
     //reads whether the player is in the hitbox
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        playerIsOver = true;
+        if (selected == false)
+        {
+            spawnPanel();
+            setSelected(true);
+        }
     }
     private void OnTriggerExit2D(Collider2D collision)
     {
-        playerIsOver = false;
+        if (selected)
+        {
+            panelObject.close();
+            setSelected(false);
+        }
     }
 
     private void Update()
@@ -80,27 +86,6 @@ public class Encounter : MonoBehaviour
                 if (Vector3.Distance(transform.position, player.transform.position) < 3)
                 {
                     GetComponent<SpriteRenderer>().enabled = true;
-                }
-            }
-        }
-
-        if (playerIsOver)
-        {
-            //On space open panel if the panel is not already open
-            if (Input.GetAxisRaw("Jump") > 0)
-            {
-                if (selected == false)
-                {
-                    spawnPanel();
-                    setSelected(true);
-                }
-            }//On escape destroy panel
-            else if (Input.GetAxisRaw("Cancel") > 0)
-            {
-                if (selected == true)
-                {
-                    panelObject.close();
-                    setSelected(false);
                 }
             }
         }
