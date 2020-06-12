@@ -56,6 +56,7 @@ public class PlayerInfo : MonoBehaviour {
             //sets health and satiation
             health = PlayerPrefs.GetInt("health");
             satiation = PlayerPrefs.GetFloat("satiation");
+            level = PlayerPrefs.GetInt("level");
         }
 
         //if there are more than 1 players destroy the newest one
@@ -179,6 +180,7 @@ public class PlayerInfo : MonoBehaviour {
         PlayerPrefs.SetInt("health", health);
         PlayerPrefs.SetFloat("satiation", satiation);
         PlayerPrefs.SetInt("deckSize", deck.transform.childCount);
+        PlayerPrefs.SetInt("level", level);
         for (int x = 0; x < deck.transform.childCount; x++)
         {
             PlayerPrefs.SetInt("c" + x.ToString(), deck.transform.GetChild(x).GetComponent<Card>().getID());

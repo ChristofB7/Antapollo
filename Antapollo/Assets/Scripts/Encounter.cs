@@ -133,6 +133,10 @@ public class Encounter : MonoBehaviour
             }
 
             save();
+            if (PlayerPrefs.GetInt(encounterName) == 1)
+            {
+                playerInfo.increaseLevel();
+            }
             FindObjectOfType<PlayerInfo>().save();
             FindObjectOfType<PlayerMapIcon>().save();
 
@@ -141,7 +145,6 @@ public class Encounter : MonoBehaviour
             //if the encounter is done
             if (PlayerPrefs.GetInt(encounterName) == 1)
             {
-                playerInfo.increaseLevel();
                 killListenter();
                 Destroy(gameObject);
             }
