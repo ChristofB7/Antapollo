@@ -18,7 +18,7 @@ public class Sell : MonoBehaviour
     [SerializeField] Button worldMapButton = null;
     public void GoBackToShop()
     {
-        SceneManager.LoadScene(3);
+        SceneManager.LoadScene(7);
     }
 
     private void MoveAllCards()
@@ -63,6 +63,6 @@ public class Sell : MonoBehaviour
     {
         MoveDeckBack();
         encounter.setEncounterDone(1);
-        SceneManager.LoadScene(0);
+        SceneManager.LoadScene(4);
     }
 }
