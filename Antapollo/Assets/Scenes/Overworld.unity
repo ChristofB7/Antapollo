@@ -132,7 +132,7 @@ GameObject:
   - component: {fileID: 106381319}
   - component: {fileID: 106381318}
   - component: {fileID: 106381317}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: MapBorder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1842,7 +1842,7 @@ GameObject:
   - component: {fileID: 1354791380}
   - component: {fileID: 1354791379}
   - component: {fileID: 1354791378}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Main Camera
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
@@ -2199,7 +2199,7 @@ GameObject:
   - component: {fileID: 1631924368}
   - component: {fileID: 1631924367}
   - component: {fileID: 1631924371}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: PlayerMapIcon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3107,36 +3107,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 3859931624026756988, guid: aa534694b34f2f6418552c183e945bac,
+    - target: {fileID: 3859931622817106557, guid: aa534694b34f2f6418552c183e945bac,
         type: 3}
-      propertyPath: card2
-      value: 
-      objectReference: {fileID: 2051951997826731977, guid: 640b0abdf4d48b04fb70c7a384bc4676,
+      propertyPath: isTown
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3859931624026756979, guid: aa534694b34f2f6418552c183e945bac,
         type: 3}
-    - target: {fileID: 3859931624026756988, guid: aa534694b34f2f6418552c183e945bac,
-        type: 3}
-      propertyPath: card3
-      value: 
-      objectReference: {fileID: 2051951997826731977, guid: b5c72f43456d25349b4fcecabf905565,
-        type: 3}
-    - target: {fileID: 3859931624026756988, guid: aa534694b34f2f6418552c183e945bac,
-        type: 3}
-      propertyPath: battleCard1
-      value: 
-      objectReference: {fileID: 2051951997826731977, guid: 501d1bf4bd91c454ebfa1407759f7e48,
-        type: 3}
-    - target: {fileID: 3859931624026756988, guid: aa534694b34f2f6418552c183e945bac,
-        type: 3}
-      propertyPath: battleCard2
-      value: 
-      objectReference: {fileID: 2051951997826731977, guid: 5fcc2f9341853fd4dabfba52d472fa52,
-        type: 3}
-    - target: {fileID: 3859931624026756988, guid: aa534694b34f2f6418552c183e945bac,
-        type: 3}
-      propertyPath: battleCard3
-      value: 
-      objectReference: {fileID: 2051951997826731977, guid: b5c72f43456d25349b4fcecabf905565,
-        type: 3}
+      propertyPath: m_UsedByEffector
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3859931624026756989, guid: aa534694b34f2f6418552c183e945bac,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -3197,9 +3177,9 @@ PrefabInstance:
       propertyPath: m_Name
       value: EncounterT1
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 3859931624026756988, guid: aa534694b34f2f6418552c183e945bac, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: aa534694b34f2f6418552c183e945bac, type: 3}
+<<<<<<< HEAD
 --- !u!1 &3859931622817106556 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3859931624026756991, guid: aa534694b34f2f6418552c183e945bac,
@@ -3238,6 +3218,8 @@ MonoBehaviour:
   enemy3: {fileID: 0}
   enemy4: {fileID: 0}
   panel: {fileID: 2579082049232847099, guid: 50ba38a222a9bcf48904b9bd1d8b333f, type: 3}
+=======
+>>>>>>> cfabb39c8b77519f1ecf2555d12c84857ff85f48
 --- !u!1001 &5299623780606646012
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3245,6 +3227,7 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+<<<<<<< HEAD
     - target: {fileID: 5299623779904999552, guid: 60998b1da185e424e916cb3013eb8cd3,
         type: 3}
       propertyPath: card2
@@ -3286,6 +3269,8 @@ PrefabInstance:
       propertyPath: level
       value: 1
       objectReference: {fileID: 0}
+=======
+>>>>>>> cfabb39c8b77519f1ecf2555d12c84857ff85f48
     - target: {fileID: 5299623779904999555, guid: 60998b1da185e424e916cb3013eb8cd3,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -3484,41 +3469,5 @@ PrefabInstance:
       propertyPath: m_Name
       value: EncounterB1
       objectReference: {fileID: 0}
-    - target: {fileID: 9146160435369275399, guid: fde1c253038789549be9faaf59960e4e,
-        type: 3}
-      propertyPath: card2
-      value: 
-      objectReference: {fileID: 2051951997826731977, guid: bcfb907ace370c846af84c49f534650d,
-        type: 3}
-    - target: {fileID: 9146160435369275399, guid: fde1c253038789549be9faaf59960e4e,
-        type: 3}
-      propertyPath: card3
-      value: 
-      objectReference: {fileID: 2051951997826731977, guid: 5a7f8d21a1ff2c242b6dd08b1a41e0f8,
-        type: 3}
-    - target: {fileID: 9146160435369275399, guid: fde1c253038789549be9faaf59960e4e,
-        type: 3}
-      propertyPath: battleCard1
-      value: 
-      objectReference: {fileID: 2051951997826731977, guid: bcfb907ace370c846af84c49f534650d,
-        type: 3}
-    - target: {fileID: 9146160435369275399, guid: fde1c253038789549be9faaf59960e4e,
-        type: 3}
-      propertyPath: battleCard2
-      value: 
-      objectReference: {fileID: 2051951997826731977, guid: 74d8e2bad59d5964c83788c4fee6ac40,
-        type: 3}
-    - target: {fileID: 9146160435369275399, guid: fde1c253038789549be9faaf59960e4e,
-        type: 3}
-      propertyPath: battleCard3
-      value: 
-      objectReference: {fileID: 2051951997826731977, guid: 501d1bf4bd91c454ebfa1407759f7e48,
-        type: 3}
-    - target: {fileID: 9146160435369275399, guid: fde1c253038789549be9faaf59960e4e,
-        type: 3}
-      propertyPath: card1
-      value: 
-      objectReference: {fileID: 2051951997826731977, guid: 5fcc2f9341853fd4dabfba52d472fa52,
-        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fde1c253038789549be9faaf59960e4e, type: 3}

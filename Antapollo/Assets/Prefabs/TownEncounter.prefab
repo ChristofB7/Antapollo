@@ -11,8 +11,8 @@ GameObject:
   - component: {fileID: 3859931624026756989}
   - component: {fileID: 3859931624026756990}
   - component: {fileID: 3859931624026756979}
-  - component: {fileID: 3859931624026756988}
-  m_Layer: 0
+  - component: {fileID: 3859931622817106557}
+  m_Layer: 5
   m_Name: TownEncounter
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -109,7 +109,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 2.0808458, y: 2.2912254}
   m_EdgeRadius: 0
---- !u!114 &3859931624026756988
+--- !u!114 &3859931622817106557
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -126,17 +126,17 @@ MonoBehaviour:
   encounterName: The Local Pub
   background: {fileID: 0}
   music: {fileID: 0}
-  card1: {fileID: 2051951997826731977, guid: 5a7f8d21a1ff2c242b6dd08b1a41e0f8, type: 3}
-  card2: {fileID: 2051951997826731977, guid: 74d8e2bad59d5964c83788c4fee6ac40, type: 3}
-  card3: {fileID: 2051951997826731977, guid: 501d1bf4bd91c454ebfa1407759f7e48, type: 3}
-  shopCard1: {fileID: 2051951997826731977, guid: 74d8e2bad59d5964c83788c4fee6ac40,
+  card1: {fileID: 2051951997826731977, guid: 74d8e2bad59d5964c83788c4fee6ac40, type: 3}
+  card2: {fileID: 2051951997826731977, guid: 501d1bf4bd91c454ebfa1407759f7e48, type: 3}
+  card3: {fileID: 2051951997826731977, guid: 5a7f8d21a1ff2c242b6dd08b1a41e0f8, type: 3}
+  shopCard1: {fileID: 2051951997826731977, guid: 5fcc2f9341853fd4dabfba52d472fa52,
     type: 3}
-  shopCard2: {fileID: 2051951997826731977, guid: 501d1bf4bd91c454ebfa1407759f7e48,
+  shopCard2: {fileID: 2051951997826731977, guid: 640b0abdf4d48b04fb70c7a384bc4676,
     type: 3}
-  shopCard3: {fileID: 2051951997826731977, guid: 5a7f8d21a1ff2c242b6dd08b1a41e0f8,
+  shopCard3: {fileID: 2051951997826731977, guid: bcfb907ace370c846af84c49f534650d,
     type: 3}
   enemy1: {fileID: 3191683073493026383, guid: cf7b738cd82af324ea69feee3e31bcde, type: 3}
   enemy2: {fileID: 0}
   enemy3: {fileID: 0}
   enemy4: {fileID: 0}
-  panel: {fileID: 8928989375525030365, guid: 50ba38a222a9bcf48904b9bd1d8b333f, type: 3}
+  panel: {fileID: 2579082049232847099, guid: 50ba38a222a9bcf48904b9bd1d8b333f, type: 3}
