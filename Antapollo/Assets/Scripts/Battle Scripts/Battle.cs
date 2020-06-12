@@ -3,12 +3,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class Battle : MonoBehaviour
 {
     //Display winning and losing
     [SerializeField] Canvas winCanvas = null;
     [SerializeField]Canvas loseCanvas = null;
+    [SerializeField] Image background;
     bool gameOver = false;
 
     //used to descide if the encounter should be removed from the map.
@@ -35,6 +37,12 @@ public class Battle : MonoBehaviour
     {
         //sets the encounter
         encounter = FindObjectOfType<Encounter>();
+        if (encounter.getBackground())
+        {
+            background.sprite = encounter.getBackground();
+        }
+        
+
         //spawns enemy
         enemyPreFab = encounter.getEnemy(0);
         enemy = Instantiate(enemyPreFab, ENEMY_LOCATION1, Quaternion.identity);
