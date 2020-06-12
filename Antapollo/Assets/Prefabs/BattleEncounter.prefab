@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 9146160435369276410}
   - component: {fileID: 9146160435369275399}
   m_Layer: 0
-  m_Name: EncounterB1
+  m_Name: BattleEncounter
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -127,8 +127,8 @@ MonoBehaviour:
   background: {fileID: 0}
   music: {fileID: 0}
   card1: {fileID: 2051951997826731977, guid: bcfb907ace370c846af84c49f534650d, type: 3}
-  card2: {fileID: 0}
-  card3: {fileID: 0}
+  card2: {fileID: 2051951997826731977, guid: 74d8e2bad59d5964c83788c4fee6ac40, type: 3}
+  card3: {fileID: 2051951997826731977, guid: 5fcc2f9341853fd4dabfba52d472fa52, type: 3}
   enemy1: {fileID: 3191683073493026383, guid: 33e9121f9d96fc849b1d07a657087a8d, type: 3}
   enemy2: {fileID: 0}
   enemy3: {fileID: 0}

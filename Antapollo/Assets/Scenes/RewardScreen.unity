@@ -130,7 +130,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 332230806}
-  - component: {fileID: 332230805}
+  - component: {fileID: 332230807}
   m_Layer: 0
   m_Name: Shop
   m_TagString: Untagged
@@ -138,21 +138,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &332230805
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 332230804}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cb78ee61e8ed32b41aa15d7579fea3f4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  returnToVillage: {fileID: 743141350}
-  sellButton: {fileID: 1843359957}
-  backToWorldMapButton: {fileID: 1176806672}
 --- !u!4 &332230806
 Transform:
   m_ObjectHideFlags: 0
@@ -167,6 +152,21 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &332230807
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 332230804}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4847ce6e1982f74ebe60b43ddf54b89, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  returnToVillage: {fileID: 743141350}
+  sellButton: {fileID: 1843359957}
+  backToWorldMapButton: {fileID: 1176806672}
 --- !u!1001 &547594867
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -318,7 +318,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 332230805}
+      - m_Target: {fileID: 0}
         m_MethodName: ReturnToWorldMap
         m_Mode: 1
         m_Arguments:
@@ -606,7 +606,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 332230805}
+      - m_Target: {fileID: 0}
         m_MethodName: ReturnToWorldMap
         m_Mode: 1
         m_Arguments:
@@ -1300,7 +1300,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 332230805}
+      - m_Target: {fileID: 0}
         m_MethodName: SellACard
         m_Mode: 1
         m_Arguments:

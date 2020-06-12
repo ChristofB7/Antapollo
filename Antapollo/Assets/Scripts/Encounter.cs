@@ -14,7 +14,7 @@ public class Encounter : MonoBehaviour
     [SerializeField] string encounterName;
     [SerializeField] Sprite background;
     [SerializeField] AudioClip music;
-    [SerializeField] Card card1, card2, card3;
+    [SerializeField] Card card1, card2, card3, shopCard1, shopCard2, shopCard3;
     [SerializeField] Enemy enemy1, enemy2, enemy3, enemy4;
     //[SerializeField] Artifact art1, art2, art3;
 
@@ -163,7 +163,22 @@ public class Encounter : MonoBehaviour
 
     public Card getCard(int index)
     {
-        return card1;
+        switch (index){
+            case 0:
+                return card1;
+            case 1:
+                return card2;
+            case 2:
+                return card3;
+            case 3:
+                return shopCard1;
+            case 4:
+                return shopCard2;
+            case 5:
+                return shopCard3;
+            default:
+                return card1;
+        }
     }
 
     //Call this with true when wishing to delete encounter after completion

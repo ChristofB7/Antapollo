@@ -20,6 +20,8 @@ public class PlayerMapIcon : MonoBehaviour
 
     PauseMenu menu;
 
+    private bool resetting = false;
+
     private bool paused = false;
     private bool pausePrimed = false;
 
@@ -45,8 +47,15 @@ public class PlayerMapIcon : MonoBehaviour
         {
             if (paused)
             {
-                menu.cont();
-                paused = false;
+                if (resetting)
+                {
+                    menu.resetCancel();
+                }
+                else
+                {
+                    menu.cont();
+                    paused = false;
+                }
             }
             else
             {
@@ -116,5 +125,15 @@ public class PlayerMapIcon : MonoBehaviour
 
         //moves player
         player.velocity = new Vector2(SPEED * horzAxis / diagonal, SPEED * vertAxis / diagonal);
+    }
+
+    public bool getResetting()
+    {
+        return resetting;
+    }
+
+    public void setResetting(bool inResetting)
+    {
+        resetting = inResetting;
     }
 }
