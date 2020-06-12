@@ -1,4 +1,4 @@
-﻿using System.Collections;
+﻿ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -8,7 +8,7 @@ public class loader : MonoBehaviour
 
     public void PlayGame()
     {
-        SceneManager.LoadScene(0);
+        SceneManager.LoadScene(4);
     }
     public void QuitGame()
     {
@@ -19,4 +19,5 @@ public class loader : MonoBehaviour
     {
         SceneManager.LoadScene(0);
     }
+
 }
