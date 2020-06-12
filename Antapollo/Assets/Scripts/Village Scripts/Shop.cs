@@ -39,11 +39,11 @@ public class Shop : MonoBehaviour
     // Start is called before the first frame update
     public void GoBack()
     {
-        SceneManager.LoadScene(2);
+        SceneManager.LoadScene(6);
     }
     public void SellACard()
     {
-        SceneManager.LoadScene(4);
+        SceneManager.LoadScene(8);
 
     }
 
@@ -70,7 +70,7 @@ public class Shop : MonoBehaviour
     {
         player.transform.position = new Vector3(-1, -1, -100);
         encounter.setEncounterDone(1);
-        SceneManager.LoadScene(0);
+        SceneManager.LoadScene(4);
     }
     public virtual void getCards()
     {

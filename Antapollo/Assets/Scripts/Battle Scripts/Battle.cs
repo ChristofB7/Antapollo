@@ -182,7 +182,7 @@ public class Battle : MonoBehaviour
         winCanvas.gameObject.transform.GetChild(2).transform.position = new Vector3(-10,-10,0);
         Time.timeScale = 1f;
         //loads the reward scene
-        SceneManager.LoadScene(5);
+        SceneManager.LoadScene(9);
     }
 
     public void ReturnToWorldMap()
@@ -192,7 +192,7 @@ public class Battle : MonoBehaviour
             encounter.setEncounterDone(1);
         }
         Time.timeScale = 1f;
-        SceneManager.LoadScene(0);
+        SceneManager.LoadScene(4);
     }
 
     public Enemy getEnemy(int index)

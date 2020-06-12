@@ -30,7 +30,7 @@ public class Village : MonoBehaviour
     }
     public void Battle()
     {
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene(5);
     }
 
     public void Rest()
@@ -51,7 +51,7 @@ public class Village : MonoBehaviour
 
     public void ShopScene()
     {
-        SceneManager.LoadScene(3);
+        SceneManager.LoadScene(7);
     }
 
     private void RemoveAllButtons()
@@ -75,7 +75,7 @@ public class Village : MonoBehaviour
     public void BackToWorldMap()
     {
         encounter.setEncounterDone(1);
-        SceneManager.LoadScene(0);
+        SceneManager.LoadScene(4);
     }
 
 }
