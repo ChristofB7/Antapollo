@@ -26,7 +26,7 @@ public class PauseMenu : MonoBehaviour
     {
         FindObjectOfType<PlayerInfo>().save();
         FindObjectOfType<PlayerMapIcon>().save();
-        Application.Quit();
+        SceneManager.LoadScene(3);
     }
     public void cont()
     {
@@ -57,6 +57,6 @@ public class PauseMenu : MonoBehaviour
         PlayerPrefs.DeleteAll();
         PlayerPrefs.Save();
         Destroy(playerInfo);
-        SceneManager.LoadScene(0);
+        SceneManager.LoadScene(3);
     }
 }

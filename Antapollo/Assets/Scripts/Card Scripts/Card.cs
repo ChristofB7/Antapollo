@@ -75,4 +75,8 @@ public class Card : MonoBehaviour
     {
         return GetComponent<SpriteRenderer>().sprite;
     }
+    public Color getColor()
+    {
+        return GetComponent<SpriteRenderer>().color;
+    }
 }

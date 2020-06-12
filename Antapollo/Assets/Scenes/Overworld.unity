@@ -3218,6 +3218,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a4c3d6ef7d295f4abb1650572976d9c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  level: 1
   isTown: 1
   isHidden: 0
   encounterName: The Local Pub
@@ -3280,6 +3281,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 2051951997826731977, guid: 640b0abdf4d48b04fb70c7a384bc4676,
         type: 3}
+    - target: {fileID: 5299623779904999552, guid: 60998b1da185e424e916cb3013eb8cd3,
+        type: 3}
+      propertyPath: level
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5299623779904999555, guid: 60998b1da185e424e916cb3013eb8cd3,
         type: 3}
       propertyPath: m_LocalPosition.x

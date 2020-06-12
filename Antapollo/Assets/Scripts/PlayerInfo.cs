@@ -5,6 +5,7 @@ using UnityEditor;
 using UnityEngine;
 
 public class PlayerInfo : MonoBehaviour {
+    int level = 0;
     int maxHealth = 10;
     int health = 10;
     int armor = 0;
@@ -189,4 +190,15 @@ public class PlayerInfo : MonoBehaviour {
     {
         return maxHealth;
     }
+
+    public int getLevel()
+    {
+        return level;
+    }
+
+    public void increaseLevel()
+    {
+        level += 1;
+    }
+
 }

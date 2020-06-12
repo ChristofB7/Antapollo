@@ -5,6 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class Encounter : MonoBehaviour
 {
+    [SerializeField] int level = 0;
+
     [SerializeField] bool isTown = false;
     //used to determine if this encounter should be deleted from the map
     int encounterDone = 0;
@@ -35,6 +37,8 @@ public class Encounter : MonoBehaviour
 
     PlayerMapIcon player;
 
+    PlayerInfo playerInfo;
+
     private void Awake()
     {
         if (isHidden)
@@ -45,6 +49,7 @@ public class Encounter : MonoBehaviour
 
     private void Start()
     {
+        playerInfo = FindObjectOfType<PlayerInfo>();
         player = FindObjectOfType<PlayerMapIcon>();
 
         //sets the hitbox
@@ -100,15 +105,19 @@ public class Encounter : MonoBehaviour
 
     public void loadEncounter()
     {
-        DontDestroyOnLoad(this);
 
-        save();
-        FindObjectOfType<PlayerInfo>().save();
-        FindObjectOfType<PlayerMapIcon>().save();
+        if(level <= playerInfo.getLevel())
+        {
+            DontDestroyOnLoad(this);
 
-        loadScene();
+            save();
+            FindObjectOfType<PlayerInfo>().save();
+            FindObjectOfType<PlayerMapIcon>().save();
 
-        SceneManager.sceneLoaded += launchScene;
+            loadScene();
+
+            SceneManager.sceneLoaded += launchScene;
+        }
     }
 
     //Launches the Battle Scene and handles world scene load
@@ -132,6 +141,7 @@ public class Encounter : MonoBehaviour
             //if the encounter is done
             if (PlayerPrefs.GetInt(encounterName) == 1)
             {
+                playerInfo.increaseLevel();
                 killListenter();
                 Destroy(gameObject);
             }
@@ -213,5 +223,10 @@ public class Encounter : MonoBehaviour
     public Sprite getBackground()
     {
         return background;
+    }
+
+    public int getLevel()
+    {
+        return level;
     }
 }
