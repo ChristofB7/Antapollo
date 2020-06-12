@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditor;
 using UnityEngine;
 
 public class PlayerInfo : MonoBehaviour {
@@ -23,17 +22,17 @@ public class PlayerInfo : MonoBehaviour {
         //sets data if there is a save
         if (PlayerPrefs.HasKey("deckSize"))
         {
-            string[] cardsFolder = { "Assets/Prefabs/Cards/Cards" };
-            string[] assetGUIDs = AssetDatabase.FindAssets("Card", cardsFolder);
 
             //contains all of the cards in the game
-            Card[] availableCards = new Card[assetGUIDs.Length];
+            Card[] availableCards = new Card[7];
 
-            //sets availableCards
-            for(int x = 0; x < assetGUIDs.Length; x++)
-            {
-                availableCards[x] = AssetDatabase.LoadAssetAtPath(AssetDatabase.GUIDToAssetPath(assetGUIDs[x]), typeof(Card)) as Card;
-            }
+            availableCards[0] = Resources.Load<Card>("Cards/Bite Card");
+            availableCards[1] = Resources.Load<Card>("Cards/Block Card");
+            availableCards[2] = Resources.Load<Card>("Cards/Bone Crush Card");
+            availableCards[3] = Resources.Load<Card>("Cards/Claw Card");
+            availableCards[4] = Resources.Load<Card>("Cards/Fade Card");
+            availableCards[5] = Resources.Load<Card>("Cards/Grip Heart Card");
+            availableCards[6] = Resources.Load<Card>("Cards/Parry Card");
 
             //Clears default deck
             for (int x = 0; x < deck.transform.childCount; x++)
