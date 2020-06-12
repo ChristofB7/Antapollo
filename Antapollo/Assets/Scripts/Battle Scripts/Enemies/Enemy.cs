@@ -13,7 +13,7 @@ public class Enemy : MonoBehaviour
     [SerializeField] int MAX_HEALTH = 5;
     [SerializeField] int health = 5;
     int armor = 0;
-    int numberOfMoves = 2;
+    [SerializeField] int numberOfMoves = 2;
     //string name = "enemy";
 
     int nextMove;
@@ -34,7 +34,7 @@ public class Enemy : MonoBehaviour
         enemyArmorDisplay = FindObjectOfType<EnemyArmorDisplay>();
     }
 
-    public void move1()
+    public virtual void move1()
     {
         if (damage>=battle.GetPlayerHealthArmor())
         {
@@ -45,7 +45,7 @@ public class Enemy : MonoBehaviour
         battle.UpdateEnemyArmorDisplay();
     }
 
-    public void move2()
+    public virtual void move2()
     {
         if (enemyArmorDisplay)
         {
