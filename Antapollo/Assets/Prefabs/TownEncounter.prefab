@@ -129,6 +129,12 @@ MonoBehaviour:
   card1: {fileID: 2051951997826731977, guid: 5a7f8d21a1ff2c242b6dd08b1a41e0f8, type: 3}
   card2: {fileID: 2051951997826731977, guid: 74d8e2bad59d5964c83788c4fee6ac40, type: 3}
   card3: {fileID: 2051951997826731977, guid: 501d1bf4bd91c454ebfa1407759f7e48, type: 3}
+  shopCard1: {fileID: 2051951997826731977, guid: 74d8e2bad59d5964c83788c4fee6ac40,
+    type: 3}
+  shopCard2: {fileID: 2051951997826731977, guid: 501d1bf4bd91c454ebfa1407759f7e48,
+    type: 3}
+  shopCard3: {fileID: 2051951997826731977, guid: 5a7f8d21a1ff2c242b6dd08b1a41e0f8,
+    type: 3}
   enemy1: {fileID: 3191683073493026383, guid: cf7b738cd82af324ea69feee3e31bcde, type: 3}
   enemy2: {fileID: 0}
   enemy3: {fileID: 0}

@@ -320,13 +320,13 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_textInfo:
     textComponent: {fileID: 200224404}
-    characterCount: 15
+    characterCount: 0
     spriteCount: 0
-    spaceCount: 2
-    wordCount: 3
+    spaceCount: 0
+    wordCount: 0
     linkCount: 0
-    lineCount: 1
-    pageCount: 1
+    lineCount: 0
+    pageCount: 0
     materialCount: 1
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
@@ -632,13 +632,13 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_textInfo:
     textComponent: {fileID: 316385758}
-    characterCount: 2
+    characterCount: 0
     spriteCount: 0
     spaceCount: 0
-    wordCount: 1
+    wordCount: 0
     linkCount: 0
-    lineCount: 1
-    pageCount: 1
+    lineCount: 0
+    pageCount: 0
     materialCount: 1
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
@@ -1306,13 +1306,13 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_textInfo:
     textComponent: {fileID: 755649989}
-    characterCount: 8
+    characterCount: 0
     spriteCount: 0
     spaceCount: 0
-    wordCount: 1
+    wordCount: 0
     linkCount: 0
-    lineCount: 1
-    pageCount: 1
+    lineCount: 0
+    pageCount: 0
     materialCount: 1
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
@@ -1462,13 +1462,13 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: -194.4862, w: 0}
   m_textInfo:
     textComponent: {fileID: 796512941}
-    characterCount: 31
+    characterCount: 0
     spriteCount: 0
-    spaceCount: 6
-    wordCount: 7
+    spaceCount: 0
+    wordCount: 0
     linkCount: 0
-    lineCount: 2
-    pageCount: 1
+    lineCount: 0
+    pageCount: 0
     materialCount: 1
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
@@ -1659,7 +1659,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 3, y: 0.20599365}
+  m_AnchoredPosition: {x: 3, y: 0.20605469}
   m_SizeDelta: {x: 18.253906, y: -1061.7461}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1257536599
@@ -2039,13 +2039,13 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_textInfo:
     textComponent: {fileID: 1531259990}
-    characterCount: 13
+    characterCount: 0
     spriteCount: 0
-    spaceCount: 2
-    wordCount: 3
+    spaceCount: 0
+    wordCount: 0
     linkCount: 0
-    lineCount: 1
-    pageCount: 1
+    lineCount: 0
+    pageCount: 0
     materialCount: 1
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
@@ -2734,13 +2734,13 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_textInfo:
     textComponent: {fileID: 1943515561}
-    characterCount: 3
+    characterCount: 0
     spriteCount: 0
     spaceCount: 0
-    wordCount: 1
+    wordCount: 0
     linkCount: 0
-    lineCount: 1
-    pageCount: 1
+    lineCount: 0
+    pageCount: 0
     materialCount: 1
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
@@ -3119,6 +3119,24 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 2051951997826731977, guid: b5c72f43456d25349b4fcecabf905565,
         type: 3}
+    - target: {fileID: 3859931624026756988, guid: aa534694b34f2f6418552c183e945bac,
+        type: 3}
+      propertyPath: battleCard1
+      value: 
+      objectReference: {fileID: 2051951997826731977, guid: 501d1bf4bd91c454ebfa1407759f7e48,
+        type: 3}
+    - target: {fileID: 3859931624026756988, guid: aa534694b34f2f6418552c183e945bac,
+        type: 3}
+      propertyPath: battleCard2
+      value: 
+      objectReference: {fileID: 2051951997826731977, guid: 5fcc2f9341853fd4dabfba52d472fa52,
+        type: 3}
+    - target: {fileID: 3859931624026756988, guid: aa534694b34f2f6418552c183e945bac,
+        type: 3}
+      propertyPath: battleCard3
+      value: 
+      objectReference: {fileID: 2051951997826731977, guid: b5c72f43456d25349b4fcecabf905565,
+        type: 3}
     - target: {fileID: 3859931624026756989, guid: aa534694b34f2f6418552c183e945bac,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -3179,8 +3197,46 @@ PrefabInstance:
       propertyPath: m_Name
       value: EncounterT1
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 3859931624026756988, guid: aa534694b34f2f6418552c183e945bac, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: aa534694b34f2f6418552c183e945bac, type: 3}
+--- !u!1 &3859931622817106556 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3859931624026756991, guid: aa534694b34f2f6418552c183e945bac,
+    type: 3}
+  m_PrefabInstance: {fileID: 3859931622817106555}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &3859931622817106557
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3859931622817106556}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a4c3d6ef7d295f4abb1650572976d9c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isTown: 1
+  isHidden: 0
+  encounterName: The Local Pub
+  background: {fileID: 0}
+  music: {fileID: 0}
+  card1: {fileID: 2051951997826731977, guid: 74d8e2bad59d5964c83788c4fee6ac40, type: 3}
+  card2: {fileID: 2051951997826731977, guid: 501d1bf4bd91c454ebfa1407759f7e48, type: 3}
+  card3: {fileID: 2051951997826731977, guid: 5a7f8d21a1ff2c242b6dd08b1a41e0f8, type: 3}
+  shopCard1: {fileID: 2051951997826731977, guid: 5fcc2f9341853fd4dabfba52d472fa52,
+    type: 3}
+  shopCard2: {fileID: 2051951997826731977, guid: 640b0abdf4d48b04fb70c7a384bc4676,
+    type: 3}
+  shopCard3: {fileID: 2051951997826731977, guid: bcfb907ace370c846af84c49f534650d,
+    type: 3}
+  enemy1: {fileID: 3191683073493026383, guid: cf7b738cd82af324ea69feee3e31bcde, type: 3}
+  enemy2: {fileID: 0}
+  enemy3: {fileID: 0}
+  enemy4: {fileID: 0}
+  panel: {fileID: 8928989375525030365, guid: 50ba38a222a9bcf48904b9bd1d8b333f, type: 3}
 --- !u!1001 &5299623780606646012
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3192,13 +3248,37 @@ PrefabInstance:
         type: 3}
       propertyPath: card2
       value: 
-      objectReference: {fileID: 2051951997826731977, guid: 640b0abdf4d48b04fb70c7a384bc4676,
+      objectReference: {fileID: 2051951997826731977, guid: bcfb907ace370c846af84c49f534650d,
         type: 3}
     - target: {fileID: 5299623779904999552, guid: 60998b1da185e424e916cb3013eb8cd3,
         type: 3}
       propertyPath: card3
       value: 
+      objectReference: {fileID: 2051951997826731977, guid: 5fcc2f9341853fd4dabfba52d472fa52,
+        type: 3}
+    - target: {fileID: 5299623779904999552, guid: 60998b1da185e424e916cb3013eb8cd3,
+        type: 3}
+      propertyPath: battleCard1
+      value: 
       objectReference: {fileID: 2051951997826731977, guid: 74d8e2bad59d5964c83788c4fee6ac40,
+        type: 3}
+    - target: {fileID: 5299623779904999552, guid: 60998b1da185e424e916cb3013eb8cd3,
+        type: 3}
+      propertyPath: battleCard2
+      value: 
+      objectReference: {fileID: 2051951997826731977, guid: 640b0abdf4d48b04fb70c7a384bc4676,
+        type: 3}
+    - target: {fileID: 5299623779904999552, guid: 60998b1da185e424e916cb3013eb8cd3,
+        type: 3}
+      propertyPath: battleCard3
+      value: 
+      objectReference: {fileID: 2051951997826731977, guid: bcfb907ace370c846af84c49f534650d,
+        type: 3}
+    - target: {fileID: 5299623779904999552, guid: 60998b1da185e424e916cb3013eb8cd3,
+        type: 3}
+      propertyPath: card1
+      value: 
+      objectReference: {fileID: 2051951997826731977, guid: 640b0abdf4d48b04fb70c7a384bc4676,
         type: 3}
     - target: {fileID: 5299623779904999555, guid: 60998b1da185e424e916cb3013eb8cd3,
         type: 3}
@@ -3402,13 +3482,37 @@ PrefabInstance:
         type: 3}
       propertyPath: card2
       value: 
-      objectReference: {fileID: 2051951997826731977, guid: 74d8e2bad59d5964c83788c4fee6ac40,
+      objectReference: {fileID: 2051951997826731977, guid: bcfb907ace370c846af84c49f534650d,
         type: 3}
     - target: {fileID: 9146160435369275399, guid: fde1c253038789549be9faaf59960e4e,
         type: 3}
       propertyPath: card3
       value: 
+      objectReference: {fileID: 2051951997826731977, guid: 5a7f8d21a1ff2c242b6dd08b1a41e0f8,
+        type: 3}
+    - target: {fileID: 9146160435369275399, guid: fde1c253038789549be9faaf59960e4e,
+        type: 3}
+      propertyPath: battleCard1
+      value: 
+      objectReference: {fileID: 2051951997826731977, guid: bcfb907ace370c846af84c49f534650d,
+        type: 3}
+    - target: {fileID: 9146160435369275399, guid: fde1c253038789549be9faaf59960e4e,
+        type: 3}
+      propertyPath: battleCard2
+      value: 
+      objectReference: {fileID: 2051951997826731977, guid: 74d8e2bad59d5964c83788c4fee6ac40,
+        type: 3}
+    - target: {fileID: 9146160435369275399, guid: fde1c253038789549be9faaf59960e4e,
+        type: 3}
+      propertyPath: battleCard3
+      value: 
       objectReference: {fileID: 2051951997826731977, guid: 501d1bf4bd91c454ebfa1407759f7e48,
+        type: 3}
+    - target: {fileID: 9146160435369275399, guid: fde1c253038789549be9faaf59960e4e,
+        type: 3}
+      propertyPath: card1
+      value: 
+      objectReference: {fileID: 2051951997826731977, guid: 5fcc2f9341853fd4dabfba52d472fa52,
         type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fde1c253038789549be9faaf59960e4e, type: 3}

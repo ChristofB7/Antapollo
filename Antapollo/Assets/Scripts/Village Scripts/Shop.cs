@@ -6,6 +6,7 @@ using UnityEngine.UI;
 
 public class Shop : MonoBehaviour
 {
+
     PlayerInfo player;
     [SerializeField] Button returnToVillage = null;
     [SerializeField] Button sellButton = null;
@@ -15,10 +16,11 @@ public class Shop : MonoBehaviour
     Vector3 INVENTORY_POSITION1 = new Vector3(4.5f, 3.25f, 0);
     Vector3 INVENTORY_POSITION2 = new Vector3(1.5f, 3.25f, 0);
     Vector3 INVENTORY_POSITION3 = new Vector3(7.5f, 3.25f, 0);
-    Encounter encounter;
-    Card cardPreFab1;
-    Card cardPreFab2;
-    Card cardPreFab3;
+    protected Encounter encounter;
+
+    protected Card cardPreFab1;
+    protected Card cardPreFab2;
+    protected Card cardPreFab3;
     Card card1;
     Card card2;
     Card card3;
@@ -27,9 +29,7 @@ public class Shop : MonoBehaviour
     public void Start()
     {
         encounter = FindObjectOfType<Encounter>();
-        cardPreFab1 = encounter.getCard(0);
-        cardPreFab2 = encounter.getCard(1);
-        cardPreFab3 = encounter.getCard(2);
+        getCards();
 
         card1 = Instantiate(cardPreFab1, INVENTORY_POSITION1, Quaternion.identity, gameObject.transform);
         card2 = Instantiate(cardPreFab2, INVENTORY_POSITION2, Quaternion.identity, gameObject.transform);
@@ -72,5 +72,10 @@ public class Shop : MonoBehaviour
         encounter.setEncounterDone(1);
         SceneManager.LoadScene(0);
     }
-
+    public virtual void getCards()
+    {
+        cardPreFab1 = encounter.getCard(0);
+        cardPreFab2 = encounter.getCard(1);
+        cardPreFab3 = encounter.getCard(2);
+    }
 }
