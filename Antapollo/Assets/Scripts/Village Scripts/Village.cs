@@ -14,11 +14,18 @@ public class Village : MonoBehaviour
     [SerializeField] Button feastButton = null;
     [SerializeField] Button shopButton = null;
     [SerializeField] Button worldMapButton = null;
+    [SerializeField] Image background;
 
 
     public void Start()
     {
         encounter = FindObjectOfType<Encounter>();
+
+        if (encounter.getBackground())
+        {
+            background.sprite = encounter.getBackground();
+        }
+
         player = FindObjectOfType<PlayerInfo>();
     }
     public void Battle()

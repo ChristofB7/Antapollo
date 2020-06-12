@@ -3016,6 +3016,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   winCanvas: {fileID: 1585131343}
   loseCanvas: {fileID: 1010135710}
+  background: {fileID: 889322931}
 --- !u!4 &1523041256
 Transform:
   m_ObjectHideFlags: 0

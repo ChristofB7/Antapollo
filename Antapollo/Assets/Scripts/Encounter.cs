@@ -209,4 +209,9 @@ public class Encounter : MonoBehaviour
     {
         return encounterName;
     }
+
+    public Sprite getBackground()
+    {
+        return background;
+    }
 }

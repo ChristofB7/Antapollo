@@ -7,7 +7,7 @@ using TMPro;
 public class EncounterPanel : MonoBehaviour
 {
     Button confirm, cancel;
-    Encounter encounter;
+    protected Encounter encounter;
 
     //linked to confirm button, loads battle scene on click
     public void confirmClick()
@@ -22,14 +22,18 @@ public class EncounterPanel : MonoBehaviour
     }
 
     //sets the target encounter, is called on init
-    public void setTarget(Encounter iEncounter)
+    public virtual void setTarget(Encounter iEncounter)
     {
         encounter = iEncounter;
         transform.GetChild(3).gameObject.GetComponent<TextMeshProUGUI>().SetText(encounter.getEncounterName());
         transform.GetChild(6).gameObject.GetComponent<Image>().sprite = encounter.getCard(0).getSprite();
         transform.GetChild(6).gameObject.GetComponent<Image>().preserveAspect = true;
-        transform.GetChild(7).gameObject.GetComponent<Image>().sprite = encounter.getEnemy(0).getSprite();
+        transform.GetChild(7).gameObject.GetComponent<Image>().sprite = encounter.getCard(1).getSprite();
         transform.GetChild(7).gameObject.GetComponent<Image>().preserveAspect = true;
+        transform.GetChild(8).gameObject.GetComponent<Image>().sprite = encounter.getCard(2).getSprite();
+        transform.GetChild(8).gameObject.GetComponent<Image>().preserveAspect = true;
+        transform.GetChild(9).gameObject.GetComponent<Image>().sprite = encounter.getEnemy(0).getSprite();
+        transform.GetChild(9).gameObject.GetComponent<Image>().preserveAspect = true;
     }
 
     //closes the panel
