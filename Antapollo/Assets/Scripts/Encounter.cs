@@ -79,7 +79,7 @@ public class Encounter : MonoBehaviour
 
     private void Update()
     {
-        if (SceneManager.GetActiveScene().buildIndex == 0)
+        if (SceneManager.GetActiveScene().buildIndex == 4)
         {
             if (isHidden)
             {
@@ -116,7 +116,7 @@ public class Encounter : MonoBehaviour
     {
         transform.Translate(new Vector3(-50, -50, 0));
         //if scene is world map
-        if (scene.buildIndex == 0)
+        if (scene.buildIndex == 4)
         {
             if (PlayerPrefs.HasKey("posX"))
             {
@@ -136,7 +136,7 @@ public class Encounter : MonoBehaviour
                 Destroy(gameObject);
             }
         }
-        else if(scene.buildIndex == 1 || scene.buildIndex == 2)
+        else if(scene.buildIndex == 5 || scene.buildIndex == 6)
         {
             SceneManager.SetActiveScene(scene);
         }
@@ -152,12 +152,12 @@ public class Encounter : MonoBehaviour
         if (isTown)
         {
             //load town
-            SceneManager.LoadSceneAsync(2);
+            SceneManager.LoadSceneAsync(6);
         }
         else
         {
             //load battle
-            SceneManager.LoadSceneAsync(1);
+            SceneManager.LoadSceneAsync(5);
         }
     }
 

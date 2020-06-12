@@ -3236,7 +3236,7 @@ MonoBehaviour:
   enemy2: {fileID: 0}
   enemy3: {fileID: 0}
   enemy4: {fileID: 0}
-  panel: {fileID: 8928989375525030365, guid: 50ba38a222a9bcf48904b9bd1d8b333f, type: 3}
+  panel: {fileID: 2579082049232847099, guid: 50ba38a222a9bcf48904b9bd1d8b333f, type: 3}
 --- !u!1001 &5299623780606646012
 PrefabInstance:
   m_ObjectHideFlags: 0
