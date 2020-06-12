@@ -99,6 +99,7 @@ MonoBehaviour:
   armorUpAmount: 0
   MAX_HEALTH: 20
   health: 20
+  numberOfMoves: 1
   attackSprite: {fileID: 21300000, guid: 2974d3ca4d6bb4b44beec6afdbb2637f, type: 3}
   blockSprite: {fileID: 21300000, guid: 978885ebffa95b5489ef96e9139bf3ab, type: 3}
 --- !u!1 &2869805855555317135
