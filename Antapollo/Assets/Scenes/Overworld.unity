@@ -2347,7 +2347,8 @@ PrefabInstance:
         type: 3}
       propertyPath: card2
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 2051951997826731977, guid: 640b0abdf4d48b04fb70c7a384bc4676,
+        type: 3}
     - target: {fileID: 9146160435369275399, guid: fde1c253038789549be9faaf59960e4e,
         type: 3}
       propertyPath: enemy1
@@ -4536,11 +4537,13 @@ PrefabInstance:
         type: 3}
       propertyPath: card2
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 2051951997826731977, guid: 501d1bf4bd91c454ebfa1407759f7e48,
+        type: 3}
     - target: {fileID: 9146160435369275399, guid: fde1c253038789549be9faaf59960e4e,
         type: 3}
       propertyPath: card3
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 2051951997826731977, guid: 74d8e2bad59d5964c83788c4fee6ac40,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fde1c253038789549be9faaf59960e4e, type: 3}
