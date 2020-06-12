@@ -48,7 +48,7 @@ public class EncounterPanel : MonoBehaviour
     //closes the panel
     public void close()
     {
-        Destroy(gameObject);
         encounter.setSelected(false);
+        Destroy(gameObject);
     }
 }
