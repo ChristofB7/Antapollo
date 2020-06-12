@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Security.Cryptography;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -130,13 +131,9 @@ public class Battle : MonoBehaviour
 
     public void LoseGame()
     {
-        gameOver = true;
-        loseCanvas.gameObject.SetActive(true);
-        loseCanvas.transform.position = new Vector3(5, 3, 1);
-        Time.timeScale = 0f;
-        Debug.Log("You have lost");
-        player.LowerSatiation();
-        player.LowerSatiation();
+        SceneManager.LoadScene(3);
+        Destroy(player);
+        Destroy(FindObjectOfType<Encounter>());
     }
 
     public void EnemyAttack(int damage)

@@ -96,7 +96,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 7
-  armorUpAmount: 7
+  armorUpAmount: 0
   MAX_HEALTH: 7
   health: 7
   numberOfMoves: 2
